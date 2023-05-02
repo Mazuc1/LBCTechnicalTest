@@ -10,7 +10,6 @@
 		CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657572A01B235007A7E34 /* AppDelegate.swift */; };
 		CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657592A01B235007A7E34 /* SceneDelegate.swift */; };
 		CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06575B2A01B235007A7E34 /* ViewController.swift */; };
-		CF06575F2A01B235007A7E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF06575D2A01B235007A7E34 /* Main.storyboard */; };
 		CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0657602A01B236007A7E34 /* Assets.xcassets */; };
 		CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */; };
 		CF06576F2A01B237007A7E34 /* LBCTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */; };
@@ -40,7 +39,6 @@
 		CF0657572A01B235007A7E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF0657592A01B235007A7E34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CF06575B2A01B235007A7E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CF06575E2A01B235007A7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF0657602A01B236007A7E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF0657632A01B236007A7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF0657652A01B236007A7E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				CF0657572A01B235007A7E34 /* AppDelegate.swift */,
 				CF0657592A01B235007A7E34 /* SceneDelegate.swift */,
 				CF06575B2A01B235007A7E34 /* ViewController.swift */,
-				CF06575D2A01B235007A7E34 /* Main.storyboard */,
 				CF0657602A01B236007A7E34 /* Assets.xcassets */,
 				CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */,
 				CF0657652A01B236007A7E34 /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */,
 				CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */,
-				CF06575F2A01B235007A7E34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CF06575D2A01B235007A7E34 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CF06575E2A01B235007A7E34 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +430,6 @@
 				INFOPLIST_FILE = LBCTechnicalTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,7 +460,6 @@
 				INFOPLIST_FILE = LBCTechnicalTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
