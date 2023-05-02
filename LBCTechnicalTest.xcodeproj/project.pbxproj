@@ -15,6 +15,12 @@
 		CF06576F2A01B237007A7E34 /* LBCTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */; };
 		CF0657792A01B237007A7E34 /* LBCTechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */; };
 		CF06577B2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */; };
+		CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657892A01B4FC007A7E34 /* ModalTransition.swift */; };
+		CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578A2A01B4FC007A7E34 /* Transition.swift */; };
+		CF0657912A01B4FC007A7E34 /* EmptyTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578B2A01B4FC007A7E34 /* EmptyTransition.swift */; };
+		CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578C2A01B4FC007A7E34 /* PushTransition.swift */; };
+		CF0657932A01B4FC007A7E34 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578D2A01B4FC007A7E34 /* Router.swift */; };
+		CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		CF0657742A01B237007A7E34 /* LBCTechnicalTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCTechnicalTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITests.swift; sourceTree = "<group>"; };
 		CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CF0657892A01B4FC007A7E34 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		CF06578A2A01B4FC007A7E34 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		CF06578B2A01B4FC007A7E34 /* EmptyTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTransition.swift; sourceTree = "<group>"; };
+		CF06578C2A01B4FC007A7E34 /* PushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		CF06578D2A01B4FC007A7E34 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,7 @@
 				CF0657572A01B235007A7E34 /* AppDelegate.swift */,
 				CF0657592A01B235007A7E34 /* SceneDelegate.swift */,
 				CF06575B2A01B235007A7E34 /* ViewController.swift */,
+				CF0657872A01B4FC007A7E34 /* Router */,
 				CF0657602A01B236007A7E34 /* Assets.xcassets */,
 				CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */,
 				CF0657652A01B236007A7E34 /* Info.plist */,
@@ -122,6 +135,27 @@
 				CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */,
 			);
 			path = LBCTechnicalTestUITests;
+			sourceTree = "<group>";
+		};
+		CF0657872A01B4FC007A7E34 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CF0657882A01B4FC007A7E34 /* Transition */,
+				CF06578D2A01B4FC007A7E34 /* Router.swift */,
+				CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CF0657882A01B4FC007A7E34 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				CF0657892A01B4FC007A7E34 /* ModalTransition.swift */,
+				CF06578A2A01B4FC007A7E34 /* Transition.swift */,
+				CF06578B2A01B4FC007A7E34 /* EmptyTransition.swift */,
+				CF06578C2A01B4FC007A7E34 /* PushTransition.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0657932A01B4FC007A7E34 /* Router.swift in Sources */,
+				CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */,
+				CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */,
+				CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */,
+				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
+				CF0657912A01B4FC007A7E34 /* EmptyTransition.swift in Sources */,
 				CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */,
 				CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */,
 				CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */,
