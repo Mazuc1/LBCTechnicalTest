@@ -21,6 +21,7 @@
 		CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578C2A01B4FC007A7E34 /* PushTransition.swift */; };
 		CF0657932A01B4FC007A7E34 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578D2A01B4FC007A7E34 /* Router.swift */; };
 		CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */; };
+		CF0657962A01BF62007A7E34 /* AdsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657952A01BF62007A7E34 /* AdsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CF06578C2A01B4FC007A7E34 /* PushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
 		CF06578D2A01B4FC007A7E34 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
+		CF0657952A01BF62007A7E34 /* AdsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				CF0657572A01B235007A7E34 /* AppDelegate.swift */,
 				CF0657592A01B235007A7E34 /* SceneDelegate.swift */,
 				CF06575B2A01B235007A7E34 /* ViewController.swift */,
+				CF0657972A01C045007A7E34 /* Ads */,
 				CF0657872A01B4FC007A7E34 /* Router */,
 				CF0657602A01B236007A7E34 /* Assets.xcassets */,
 				CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */,
@@ -156,6 +159,14 @@
 				CF06578C2A01B4FC007A7E34 /* PushTransition.swift */,
 			);
 			path = Transition;
+			sourceTree = "<group>";
+		};
+		CF0657972A01C045007A7E34 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */,
 				CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */,
 				CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */,
+				CF0657962A01BF62007A7E34 /* AdsRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

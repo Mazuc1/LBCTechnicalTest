@@ -9,12 +9,16 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var adsRouter: AdsRouter?
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        adsRouter = AdsRouter(rootTransition: EmptyTransition())
+
+        guard let windowScene = (scene as? UIWindowScene),
+              let rootViewController = adsRouter?.makeRootViewController() else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ViewController()
+        window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         self.window = window
     }
