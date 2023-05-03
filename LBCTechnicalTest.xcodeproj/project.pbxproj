@@ -28,6 +28,10 @@
 		CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */; };
 		CF5A9CF12A02EBEC00F2C764 /* AdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */; };
 		CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */; };
+		CF5A9CFA2A0306D400F2C764 /* UrbaneRounded-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF5A9CF62A0306D400F2C764 /* UrbaneRounded-Light.ttf */; };
+		CF5A9CFB2A0306D400F2C764 /* UrbaneRounded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF5A9CF72A0306D400F2C764 /* UrbaneRounded-Bold.ttf */; };
+		CF5A9CFC2A0306D400F2C764 /* UrbaneRounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF5A9CF82A0306D400F2C764 /* UrbaneRounded-Medium.ttf */; };
+		CF5A9CFD2A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF5A9CF92A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+extension.swift"; sourceTree = "<group>"; };
+		CF5A9CF62A0306D400F2C764 /* UrbaneRounded-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UrbaneRounded-Light.ttf"; sourceTree = "<group>"; };
+		CF5A9CF72A0306D400F2C764 /* UrbaneRounded-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UrbaneRounded-Bold.ttf"; sourceTree = "<group>"; };
+		CF5A9CF82A0306D400F2C764 /* UrbaneRounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UrbaneRounded-Medium.ttf"; sourceTree = "<group>"; };
+		CF5A9CF92A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UrbaneRounded-DemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,7 @@
 		CF5A9CE72A02DFD300F2C764 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CF5A9CF52A0306AD00F2C764 /* Fonts */,
 				CF5A9CF42A02F03600F2C764 /* Extension */,
 				CF5A9CE82A02DFE800F2C764 /* Configurable.swift */,
 				CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */,
@@ -201,6 +210,17 @@
 				CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CF5A9CF52A0306AD00F2C764 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A9CF72A0306D400F2C764 /* UrbaneRounded-Bold.ttf */,
+				CF5A9CF92A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf */,
+				CF5A9CF62A0306D400F2C764 /* UrbaneRounded-Light.ttf */,
+				CF5A9CF82A0306D400F2C764 /* UrbaneRounded-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,8 +327,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5A9CFC2A0306D400F2C764 /* UrbaneRounded-Medium.ttf in Resources */,
+				CF5A9CFD2A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf in Resources */,
 				CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */,
 				CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */,
+				CF5A9CFB2A0306D400F2C764 /* UrbaneRounded-Bold.ttf in Resources */,
+				CF5A9CFA2A0306D400F2C764 /* UrbaneRounded-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
