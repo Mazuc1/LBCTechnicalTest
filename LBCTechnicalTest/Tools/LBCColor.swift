@@ -12,6 +12,9 @@ enum LBCColor {
     
     // Ad category colors
     case rose, purple, cyan, lightBlue, royalBlue, red, salmon, green, olive, yellow, orange
+    
+    // Text colors
+    case ink, inkLight
 
     var color: UIColor {
         switch self {
@@ -26,6 +29,9 @@ enum LBCColor {
         case .olive: return UIColor(red: 197/255, green: 208/255, blue: 129/255, alpha: 1)
         case .yellow: return UIColor(red: 250/255, green: 123/255, blue: 134/255, alpha: 1)
         case .orange: return UIColor(red: 231/255, green: 188/255, blue: 135/255, alpha: 1)
+            
+        case .ink: return UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+        case .inkLight: return UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha: 1)
         }
     }
 }
