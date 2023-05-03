@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Ad: Decodable {
     var id: Int
@@ -51,13 +52,29 @@ enum AdCategory: Int, Decodable {
         case .children: return "Enfants"
         }
     }
+    
+    var color: UIColor {
+        switch self {
+        case .vehicule: return LBCColor.cyan.color
+        case .mode: return LBCColor.green.color
+        case .DIY: return LBCColor.lightBlue.color
+        case .house: return LBCColor.olive.color
+        case .hobbies: return LBCColor.orange.color
+        case .realEstate: return LBCColor.purple.color
+        case .books: return LBCColor.red.color
+        case .multimedia: return LBCColor.rose.color
+        case .services: return LBCColor.royalBlue.color
+        case .animals: return LBCColor.salmon.color
+        case .children: return LBCColor.yellow.color
+        }
+    }
 }
 
 extension Ad {
     static let mockedUrl = URL(string: "https://www.google.fr/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Ffr%2Fphotos%2Fasturies&psig=AOvVaw1OxXuj4HxdiTXVJNu9Snfb&ust=1683228042849000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNiEqZ7v2f4CFQAAAAAdAAAAABAE")!
     static let mockedDatas: [Ad] = [
-        .init(id: 1, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
-        .init(id: 1, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
+        .init(id: 1, category: .animals, title: "Chien à vendre aaa aaa aa aaa", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
+        .init(id: 1, category: .animals, title: "Chien à vendre aaa aaaaaaa a a a a a a a a a a a a", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
         .init(id: 1, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
         .init(id: 1, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
         .init(id: 1, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),

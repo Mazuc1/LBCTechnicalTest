@@ -21,26 +21,40 @@ final class AdCollectionViewCell: UICollectionViewCell {
     }
 
     private let labelAdTitle: UILabel = .init().configure {
-        $0.textColor = .black
+        $0.textColor = LBCColor.ink.color
+        $0.font = LBCFont.demiBoldS.font
         $0.numberOfLines = 2
     }
 
     private let labelAdPrice: UILabel = .init().configure {
-        $0.textColor = .black
+        $0.textColor = LBCColor.inkLight.color
+        $0.font = LBCFont.demiBoldXS.font
     }
 
-    private let labelAdCategory: UILabel = .init().configure {
-        $0.textColor = .black
+    private let labelAdCategory: PaddingLabel = .init(topInset: DS.defaultSpacing(factor: 0.5),
+                                                      bottomInset: DS.defaultSpacing(factor: 0.5),
+                                                      leftInset: DS.defaultSpacing(factor: 0.5),
+                                                      rightInset: DS.defaultSpacing(factor: 0.5)).configure {
+        $0.font = LBCFont.mediumXS.font
+        $0.layer.cornerRadius = DS.defaultRadius
+        $0.clipsToBounds = true
     }
 
     private let imageViewUrgent: UIImageView = .init().configure {
         $0.contentMode = .scaleAspectFit
     }
 
+    private let spacer: UIView = .init().configure {
+        let spacerWidthConstraint = $0.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude)
+        spacerWidthConstraint.priority = .defaultLow
+        spacerWidthConstraint.isActive = true
+    }
+
     private let stackViewAdInformations: UIStackView = .init().configure {
         $0.axis = .vertical
         $0.alignment = .leading
         $0.distribution = .fill
+        $0.spacing = DS.defaultSpacing
         $0.isLayoutMarginsRelativeArrangement = true
         let edge = DS.defaultSpacing(factor: 0.5)
         $0.layoutMargins = .init(top: edge,
@@ -74,8 +88,11 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     func fillUI(with ad: Ad) {
         labelAdTitle.text = ad.title
+        labelAdPrice.text = "\(ad.price)€"
+        
         labelAdCategory.text = ad.category.name
-        labelAdPrice.text = "\(ad.price)"
+        labelAdCategory.textColor = ad.category.color
+        labelAdCategory.backgroundColor = ad.category.color.withAlphaComponent(0.2)
 
         setupView()
     }
@@ -84,14 +101,14 @@ final class AdCollectionViewCell: UICollectionViewCell {
         stackViewAdInformations.addArrangedSubview(labelAdTitle)
         stackViewAdInformations.addArrangedSubview(UIStackView().configure {
             $0.axis = .horizontal
-            $0.alignment = .leading
+            $0.alignment = .center
             $0.distribution = .equalSpacing
-            $0.addArrangedSubviews([labelAdCategory, labelAdPrice])
+            $0.addArrangedSubviews([labelAdCategory, spacer, labelAdPrice])
         })
 
         stackViewContent.addArrangedSubviews([imageViewAd, stackViewAdInformations])
 
-        contentView.addSubview(stackViewContent) // set constraint strech in view
+        contentView.addSubview(stackViewContent)
 
         NSLayoutConstraint.activate([
             imageViewAd.widthAnchor.constraint(equalToConstant: contentView.frame.width),
