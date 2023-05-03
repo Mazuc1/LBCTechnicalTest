@@ -25,6 +25,7 @@
 		CF0657992A01C532007A7E34 /* AdsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657982A01C532007A7E34 /* AdsListViewController.swift */; };
 		CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CE82A02DFE800F2C764 /* Configurable.swift */; };
 		CF5A9CED2A02E1C100F2C764 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */; };
+		CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		CF0657982A01C532007A7E34 /* AdsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsListViewController.swift; sourceTree = "<group>"; };
 		CF5A9CE82A02DFE800F2C764 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +182,19 @@
 		CF5A9CE72A02DFD300F2C764 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CF5A9CF42A02F03600F2C764 /* Extension */,
 				CF5A9CE82A02DFE800F2C764 /* Configurable.swift */,
 				CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		CF5A9CF42A02F03600F2C764 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 			files = (
 				CF0657932A01B4FC007A7E34 /* Router.swift in Sources */,
 				CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */,
+				CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */,
 				CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */,
 				CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */,
 				CF5A9CED2A02E1C100F2C764 /* DesignSystem.swift in Sources */,
