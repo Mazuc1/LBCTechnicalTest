@@ -22,6 +22,8 @@
 		CF0657932A01B4FC007A7E34 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578D2A01B4FC007A7E34 /* Router.swift */; };
 		CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */; };
 		CF0657962A01BF62007A7E34 /* AdsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657952A01BF62007A7E34 /* AdsRouter.swift */; };
+		CF0657992A01C532007A7E34 /* AdsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657982A01C532007A7E34 /* AdsListViewController.swift */; };
+		CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CE82A02DFE800F2C764 /* Configurable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		CF06578D2A01B4FC007A7E34 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		CF0657952A01BF62007A7E34 /* AdsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsRouter.swift; sourceTree = "<group>"; };
+		CF0657982A01C532007A7E34 /* AdsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsListViewController.swift; sourceTree = "<group>"; };
+		CF5A9CE82A02DFE800F2C764 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				CF06575B2A01B235007A7E34 /* ViewController.swift */,
 				CF0657972A01C045007A7E34 /* Ads */,
 				CF0657872A01B4FC007A7E34 /* Router */,
+				CF5A9CE72A02DFD300F2C764 /* Tools */,
 				CF0657602A01B236007A7E34 /* Assets.xcassets */,
 				CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */,
 				CF0657652A01B236007A7E34 /* Info.plist */,
@@ -165,8 +170,17 @@
 			isa = PBXGroup;
 			children = (
 				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
+				CF0657982A01C532007A7E34 /* AdsListViewController.swift */,
 			);
 			path = Ads;
+			sourceTree = "<group>";
+		};
+		CF5A9CE72A02DFD300F2C764 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A9CE82A02DFE800F2C764 /* Configurable.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,7 +317,9 @@
 				CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */,
 				CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */,
 				CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */,
+				CF0657992A01C532007A7E34 /* AdsListViewController.swift in Sources */,
 				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
+				CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */,
 				CF0657912A01B4FC007A7E34 /* EmptyTransition.swift in Sources */,
 				CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */,
 				CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */,

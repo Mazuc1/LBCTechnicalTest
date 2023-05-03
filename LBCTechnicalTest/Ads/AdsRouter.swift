@@ -10,7 +10,7 @@ import UIKit
 final class AdsRouter: DefaultRouter {
     func makeRootViewController() -> UIViewController {
         let router = AdsRouter(rootTransition: EmptyTransition())
-        let rootViewController = ViewController()
+        let rootViewController = AdsListViewController(collectionViewLayout: UICollectionViewFlowLayout())
         router.rootViewController = rootViewController
 
         return UINavigationController(rootViewController: rootViewController)
