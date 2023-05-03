@@ -15,10 +15,12 @@ enum LBCFont {
     case demiBoldL
     case demiBoldM
     case demiBoldS
+    case demiBoldXS
 
     case mediumL
     case mediumM
     case mediumS
+    case mediumXS
 
     case lightL
     case lightM
@@ -32,9 +34,11 @@ enum LBCFont {
         case .demiBoldL: return UIFont.urbaneRounded(size: 20, weight: .demiBold)
         case .demiBoldM: return UIFont.urbaneRounded(size: 18, weight: .demiBold)
         case .demiBoldS: return UIFont.urbaneRounded(size: 16, weight: .demiBold)
+        case .demiBoldXS: return UIFont.urbaneRounded(size: 14, weight: .demiBold)
         case .mediumL: return UIFont.urbaneRounded(size: 20, weight: .medium)
         case .mediumM: return UIFont.urbaneRounded(size: 18, weight: .medium)
         case .mediumS: return UIFont.urbaneRounded(size: 16, weight: .medium)
+        case .mediumXS: return UIFont.urbaneRounded(size: 14, weight: .medium)
         case .lightL: return UIFont.urbaneRounded(size: 20, weight: .light)
         case .lightM: return UIFont.urbaneRounded(size: 18, weight: .light)
         case .lightS: return UIFont.urbaneRounded(size: 16, weight: .light)
