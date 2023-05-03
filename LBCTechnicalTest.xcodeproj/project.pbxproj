@@ -34,6 +34,7 @@
 		CF5A9CFD2A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF5A9CF92A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf */; };
 		CF5A9CFF2A03077A00F2C764 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CFE2A03077A00F2C764 /* UIFont+extension.swift */; };
 		CF5A9D012A03079200F2C764 /* LBCFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D002A03079200F2C764 /* LBCFont.swift */; };
+		CF5A9D052A030B2C00F2C764 /* LBCColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D042A030B2C00F2C764 /* LBCColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		CF5A9CF92A0306D400F2C764 /* UrbaneRounded-DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UrbaneRounded-DemiBold.ttf"; sourceTree = "<group>"; };
 		CF5A9CFE2A03077A00F2C764 /* UIFont+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		CF5A9D002A03079200F2C764 /* LBCFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBCFont.swift; sourceTree = "<group>"; };
+		CF5A9D042A030B2C00F2C764 /* LBCColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBCColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				CF5A9CF52A0306AD00F2C764 /* Fonts */,
 				CF5A9CF42A02F03600F2C764 /* Extension */,
 				CF5A9CE82A02DFE800F2C764 /* Configurable.swift */,
+				CF5A9D042A030B2C00F2C764 /* LBCColor.swift */,
 				CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */,
 			);
 			path = Tools;
@@ -381,6 +384,7 @@
 				CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */,
 				CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */,
 				CF0657962A01BF62007A7E34 /* AdsRouter.swift in Sources */,
+				CF5A9D052A030B2C00F2C764 /* LBCColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
