@@ -26,6 +26,7 @@
 		CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CE82A02DFE800F2C764 /* Configurable.swift */; };
 		CF5A9CED2A02E1C100F2C764 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */; };
 		CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */; };
+		CF5A9CF12A02EBEC00F2C764 /* AdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */; };
 		CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		CF5A9CE82A02DFE800F2C764 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
 				CF0657982A01C532007A7E34 /* AdsListViewController.swift */,
 				CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */,
+				CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF0657932A01B4FC007A7E34 /* Router.swift in Sources */,
+				CF5A9CF12A02EBEC00F2C764 /* AdCollectionViewCell.swift in Sources */,
 				CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */,
 				CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */,
 				CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */,
