@@ -14,9 +14,9 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     // MARK: - UI
 
-    private let imageViewAd: UIImageView = .init().configure {
+    private let imageViewAd: AsyncImageView = .init(frame: .zero).configure {
         $0.contentMode = .scaleAspectFill
-        $0.backgroundColor = .brown
+        $0.backgroundColor = .white
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -65,6 +65,11 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Methods
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageViewAd.image = nil
+    }
+
     func fillUI(with ad: Ad) {
         labelAdTitle.text = ad.title
         labelAdPrice.text = "\(ad.price)€"
@@ -72,6 +77,17 @@ final class AdCollectionViewCell: UICollectionViewCell {
         labelAdCategory.text = ad.category.name
         labelAdCategory.textColor = ad.category.color
         labelAdCategory.backgroundColor = ad.category.color.withAlphaComponent(0.2)
+
+        let adID = NSNumber(integerLiteral: ad.id)
+
+        if let cachedImage = AdsGridViewController.adCellImagesCache.object(forKey: adID) {
+            imageViewAd.image = cachedImage
+        } else {
+            imageViewAd.loadImage(from: ad.imagesURL.thumb) { image in
+                guard let image else { return }
+                AdsGridViewController.adCellImagesCache.setObject(image, forKey: adID)
+            }
+        }
 
         setupView()
     }

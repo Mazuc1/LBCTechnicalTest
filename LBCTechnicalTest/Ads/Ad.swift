@@ -80,7 +80,7 @@ enum AdCategory: Int, Decodable {
 }
 
 extension Ad {
-    static let mockedUrl = URL(string: "https://www.google.fr/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Ffr%2Fphotos%2Fasturies&psig=AOvVaw1OxXuj4HxdiTXVJNu9Snfb&ust=1683228042849000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNiEqZ7v2f4CFQAAAAAdAAAAABAE")!
+    static let mockedUrl = URL(string: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")!
     static let mockedDatas: [Ad] = [
         .init(id: 1, category: .animals, title: "Chien à vendre aaa aaa aa aaa", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
         .init(id: 2, category: .animals, title: "Chien à vendre aaa aaaaaaa a a a a a a a a a a a a", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),

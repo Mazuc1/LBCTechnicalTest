@@ -10,16 +10,25 @@ import UIKit
 final class AdsGridViewController: UIViewController {
     // MARK: - Properties
 
+    static let adCellImagesCache: NSCache<NSNumber, UIImage> = {
+        let cache = NSCache<NSNumber, UIImage>()
+        cache.countLimit = 50
+        cache.totalCostLimit = 50 * 1024 * 1024 // 50MB
+        return cache
+    }()
+
     enum Section {
         case main
     }
+
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Ad> = createDataSource()
+
+    // MARK: - UI
 
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = LBCColor.lightGray.color
     }
-
-    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Ad> = createDataSource()
 
     // MARK: - Life cycle
 
