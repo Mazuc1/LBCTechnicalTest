@@ -37,6 +37,7 @@
 		CF5A9D082A0310F200F2C764 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D072A0310F200F2C764 /* PaddingLabel.swift */; };
 		CF5A9D0C2A03AD5800F2C764 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0B2A03AD5800F2C764 /* AsyncImageView.swift */; };
 		CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */; };
+		CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D112A03D5CD00F2C764 /* ContentState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CF5A9D072A0310F200F2C764 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CF5A9D0B2A03AD5800F2C764 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingService.swift; sourceTree = "<group>"; };
+		CF5A9D112A03D5CD00F2C764 /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				CF5A9D072A0310F200F2C764 /* PaddingLabel.swift */,
 				CF5A9D0B2A03AD5800F2C764 /* AsyncImageView.swift */,
+				CF5A9D112A03D5CD00F2C764 /* ContentState.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				CF5A9CFF2A03077A00F2C764 /* UIFont+extension.swift in Sources */,
 				CF0657992A01C532007A7E34 /* AdsGridViewController.swift in Sources */,
 				CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */,
+				CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */,
 				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
 				CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */,
 				CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */,
