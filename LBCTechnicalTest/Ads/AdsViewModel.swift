@@ -23,8 +23,6 @@ final class AdsViewModel: ObservableObject {
         case `default`(CollectionViewSnapshot)
     }
 
-    var destinationsSubject: PassthroughSubject<[Ad], Never> = .init()
-
     @Published var viewState: ViewState = .loading
 
     // MARK: - Init
