@@ -45,6 +45,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     private let imageViewUrgent: UIImageView = .init().configure {
         $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(systemName: "exclamationmark.triangle.fill")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private let container: UIView = .init().configure {
@@ -90,6 +92,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
         }
 
         setupView()
+
+        if ad.isUrgent { addImageViewUrgent() }
     }
 
     private func setupView() {
@@ -129,5 +133,16 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
         contentView.layer.cornerRadius = DS.defaultRadius
         contentView.clipsToBounds = true
+    }
+
+    private func addImageViewUrgent() {
+        imageViewAd.addSubview(imageViewUrgent)
+
+        NSLayoutConstraint.activate([
+            imageViewUrgent.widthAnchor.constraint(equalToConstant: 20),
+            imageViewUrgent.heightAnchor.constraint(equalToConstant: 20),
+            imageViewAd.bottomAnchor.constraint(equalTo: imageViewUrgent.bottomAnchor, constant: DS.defaultSpacing),
+            imageViewAd.trailingAnchor.constraint(equalTo: imageViewUrgent.trailingAnchor, constant: DS.defaultSpacing),
+        ])
     }
 }
