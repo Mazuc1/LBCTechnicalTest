@@ -8,14 +8,13 @@
 import UIKit
 
 class PaddingLabel: UILabel {
-    
     // MARK: - Properties
-    
+
     var topInset: CGFloat
     var bottomInset: CGFloat
     var leftInset: CGFloat
     var rightInset: CGFloat
-    
+
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         return CGSize(width: size.width + leftInset + rightInset,
@@ -27,7 +26,7 @@ class PaddingLabel: UILabel {
             preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
         }
     }
-    
+
     // MARK: - Init
 
     init(topInset: CGFloat,
@@ -46,7 +45,7 @@ class PaddingLabel: UILabel {
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Methods
 
     override func drawText(in rect: CGRect) {
