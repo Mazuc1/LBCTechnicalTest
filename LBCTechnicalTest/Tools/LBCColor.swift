@@ -15,6 +15,9 @@ enum LBCColor {
     // Text colors
     case ink, inkLight
 
+    // General
+    case lightGray
+
     var color: UIColor {
         switch self {
         case .rose: return UIColor(red: 229 / 255, green: 188 / 255, blue: 218 / 255, alpha: 1)
@@ -31,6 +34,8 @@ enum LBCColor {
 
         case .ink: return UIColor(red: 40 / 255, green: 40 / 255, blue: 40 / 255, alpha: 1)
         case .inkLight: return UIColor(red: 90 / 255, green: 90 / 255, blue: 90 / 255, alpha: 1)
+
+        case .lightGray: return UIColor(red: 242.25 / 255, green: 239.7 / 255, blue: 237.15 / 255, alpha: 1)
         }
     }
 }
