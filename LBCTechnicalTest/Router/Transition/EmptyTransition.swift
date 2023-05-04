@@ -1,9 +1,8 @@
 //
 //  EmptyTransition.swift
-//  RoutingExample
+//  LBCTechnicalTest
 //
-//  Created by Cassius Pacheco on 8/3/20.
-//  Copyright © 2020 Cassius Pacheco. All rights reserved.
+//  Created by Loic Mazuc on 03/05/2023.
 //
 
 import UIKit

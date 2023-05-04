@@ -66,7 +66,9 @@ final class AdsGridViewController: UIViewController {
         return UICollectionViewDiffableDataSource<Section, Ad>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: Ad) -> UICollectionViewCell? in
             // Return the cell.
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
+                                                         for: indexPath,
+                                                         item: item)
         }
     }
 
@@ -84,7 +86,10 @@ final class AdsGridViewController: UIViewController {
         group.interItemSpacing = .fixed(10)
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10,
+                                                        leading: 10,
+                                                        bottom: 10,
+                                                        trailing: 10)
         section.interGroupSpacing = 10
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout

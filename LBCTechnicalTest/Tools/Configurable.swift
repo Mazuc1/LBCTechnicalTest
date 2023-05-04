@@ -1,8 +1,8 @@
 //
 //  Configurable.swift
-//  FrenchGameFactory
+//  LBCTechnicalTest
 //
-//  Created by Loic Mazuc on 21/10/2021.
+//  Created by Loic Mazuc on 03/05/2023.
 //
 
 import UIKit

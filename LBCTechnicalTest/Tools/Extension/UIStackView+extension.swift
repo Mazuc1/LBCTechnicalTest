@@ -1,8 +1,8 @@
 //
 //  UIStackView+extension.swift
-//  PlomeCoreKit
+//  LBCTechnicalTest
 //
-//  Created by Loic Mazuc on 21/10/2022.
+//  Created by Loic Mazuc on 03/05/2023.
 //
 
 import UIKit

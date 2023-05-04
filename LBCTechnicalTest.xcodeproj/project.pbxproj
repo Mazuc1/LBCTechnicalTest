@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657572A01B235007A7E34 /* AppDelegate.swift */; };
 		CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657592A01B235007A7E34 /* SceneDelegate.swift */; };
-		CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06575B2A01B235007A7E34 /* ViewController.swift */; };
 		CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0657602A01B236007A7E34 /* Assets.xcassets */; };
 		CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */; };
 		CF06576F2A01B237007A7E34 /* LBCTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */; };
@@ -60,7 +59,6 @@
 		CF0657542A01B235007A7E34 /* LBCTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBCTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0657572A01B235007A7E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF0657592A01B235007A7E34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF06575B2A01B235007A7E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF0657602A01B236007A7E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF0657632A01B236007A7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF0657652A01B236007A7E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 			children = (
 				CF0657572A01B235007A7E34 /* AppDelegate.swift */,
 				CF0657592A01B235007A7E34 /* SceneDelegate.swift */,
-				CF06575B2A01B235007A7E34 /* ViewController.swift */,
 				CF0657972A01C045007A7E34 /* Ads */,
 				CF0657872A01B4FC007A7E34 /* Router */,
 				CF5A9CE72A02DFD300F2C764 /* Tools */,
@@ -394,7 +391,6 @@
 				CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */,
 				CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */,
 				CF0657912A01B4FC007A7E34 /* EmptyTransition.swift in Sources */,
-				CF06575C2A01B235007A7E34 /* ViewController.swift in Sources */,
 				CF5A9D012A03079200F2C764 /* LBCFont.swift in Sources */,
 				CF0657582A01B235007A7E34 /* AppDelegate.swift in Sources */,
 				CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */,
