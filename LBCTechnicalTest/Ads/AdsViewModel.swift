@@ -59,8 +59,19 @@ final class AdsViewModel: ObservableObject {
 
     private func makeCollectionViewDefaultSnapshot(ads: [Ad]) -> CollectionViewSnapshot {
         var snapshot: CollectionViewSnapshot = .init()
+
+        let notUrgentAds = ads
+            .filter { !$0.isUrgent }
+            .sorted { $0.creationDate > $1.creationDate }
+
+        let urgentAds = ads
+            .filter { $0.isUrgent }
+            .sorted { $0.creationDate > $1.creationDate }
+
+        let sortedAds = urgentAds + notUrgentAds
+
         snapshot.appendSections([.main])
-        snapshot.appendItems(ads)
+        snapshot.appendItems(sortedAds)
         return snapshot
     }
 }
