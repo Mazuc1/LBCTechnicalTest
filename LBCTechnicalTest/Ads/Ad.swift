@@ -17,6 +17,7 @@ struct Ad: Decodable, Hashable, Equatable {
     var creationDate: Date
     var imagesURL: ImagesURL
     var isUrgent: Bool
+    var siret: String?
 
     static func == (lhs: Ad, rhs: Ad) -> Bool {
         lhs.id == rhs.id
