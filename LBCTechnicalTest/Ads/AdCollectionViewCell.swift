@@ -24,11 +24,13 @@ final class AdCollectionViewCell: UICollectionViewCell {
         $0.textColor = LBCColor.ink.color
         $0.font = LBCFont.demiBoldS.font
         $0.numberOfLines = 2
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private let labelAdPrice: UILabel = .init().configure {
         $0.textColor = LBCColor.inkLight.color
         $0.font = LBCFont.demiBoldXS.font
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private let labelAdCategory: PaddingLabel = .init(topInset: DS.defaultSpacing(factor: 0.5),
@@ -38,38 +40,15 @@ final class AdCollectionViewCell: UICollectionViewCell {
         $0.font = LBCFont.mediumXS.font
         $0.layer.cornerRadius = DS.defaultRadius
         $0.clipsToBounds = true
+        $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private let imageViewUrgent: UIImageView = .init().configure {
         $0.contentMode = .scaleAspectFit
     }
 
-    private let spacer: UIView = .init().configure {
-        let spacerWidthConstraint = $0.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude)
-        spacerWidthConstraint.priority = .defaultLow
-        spacerWidthConstraint.isActive = true
-    }
-
-    private let stackViewAdInformations: UIStackView = .init().configure {
-        $0.axis = .vertical
-        $0.alignment = .leading
-        $0.distribution = .fill
-        $0.spacing = DS.defaultSpacing
-        $0.isLayoutMarginsRelativeArrangement = true
-        let edge = DS.defaultSpacing(factor: 0.5)
-        $0.layoutMargins = .init(top: edge,
-                                 left: edge,
-                                 bottom: edge,
-                                 right: edge)
-    }
-
-    private let stackViewContent = UIStackView().configure {
-        $0.axis = .vertical
-        $0.alignment = .leading
-        $0.distribution = .fill
+    private let container: UIView = .init().configure {
         $0.backgroundColor = .white
-        $0.layer.cornerRadius = DS.defaultRadius
-        $0.clipsToBounds = true
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -89,7 +68,7 @@ final class AdCollectionViewCell: UICollectionViewCell {
     func fillUI(with ad: Ad) {
         labelAdTitle.text = ad.title
         labelAdPrice.text = "\(ad.price)€"
-        
+
         labelAdCategory.text = ad.category.name
         labelAdCategory.textColor = ad.category.color
         labelAdCategory.backgroundColor = ad.category.color.withAlphaComponent(0.2)
@@ -98,33 +77,41 @@ final class AdCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupView() {
-        stackViewAdInformations.addArrangedSubview(labelAdTitle)
-        stackViewAdInformations.addArrangedSubview(UIStackView().configure {
-            $0.axis = .horizontal
-            $0.alignment = .center
-            $0.distribution = .equalSpacing
-            $0.addArrangedSubviews([labelAdCategory, spacer, labelAdPrice])
-        })
-
-        stackViewContent.addArrangedSubviews([imageViewAd, stackViewAdInformations])
-
-        contentView.addSubview(stackViewContent)
+        contentView.addSubview(container)
+        contentView.addSubview(imageViewAd)
+        contentView.addSubview(labelAdTitle)
+        contentView.addSubview(labelAdCategory)
+        contentView.addSubview(labelAdPrice)
 
         NSLayoutConstraint.activate([
+            container.topAnchor.constraint(equalTo: contentView.topAnchor),
+            container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            imageViewAd.heightAnchor.constraint(equalToConstant: 140),
             imageViewAd.widthAnchor.constraint(equalToConstant: contentView.frame.width),
 
-            stackViewContent.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackViewContent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackViewContent.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            stackViewContent.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageViewAd.topAnchor.constraint(equalTo: container.topAnchor),
+            imageViewAd.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            imageViewAd.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+
+            labelAdTitle.topAnchor.constraint(equalTo: imageViewAd.bottomAnchor, constant: DS.defaultSpacing),
+            labelAdTitle.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: DS.defaultSpacing),
+            container.trailingAnchor.constraint(equalTo: labelAdTitle.trailingAnchor, constant: DS.defaultSpacing),
+
+            labelAdCategory.topAnchor.constraint(equalTo: labelAdTitle.bottomAnchor, constant: DS.defaultSpacing(factor: 0.5)),
+            labelAdCategory.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: DS.defaultSpacing),
+
+            labelAdPrice.topAnchor.constraint(equalTo: labelAdTitle.bottomAnchor, constant: DS.defaultSpacing(factor: 0.5)),
+            labelAdPrice.centerYAnchor.constraint(equalTo: labelAdCategory.centerYAnchor),
+            container.trailingAnchor.constraint(equalTo: labelAdPrice.trailingAnchor, constant: DS.defaultSpacing),
+            container.bottomAnchor.constraint(equalTo: labelAdPrice.bottomAnchor, constant: DS.defaultSpacing),
+
+            labelAdPrice.leadingAnchor.constraint(greaterThanOrEqualTo: labelAdCategory.trailingAnchor, constant: DS.defaultSpacing),
         ])
 
-        contentView.layer.shadowColor = UIColor(cgColor: .init(red: 0, green: 0, blue: 0, alpha: 1)).cgColor
-        contentView.layer.shadowRadius = DS.defaultRadius
-        contentView.layer.shadowOpacity = 0.2
-        contentView.layer.shadowOffset = .init(width: 2, height: 3)
-
-        /// Fix shadow performance
-        contentView.layer.shadowPath = UIBezierPath(rect: contentView.bounds).cgPath
+        contentView.layer.cornerRadius = DS.defaultRadius
+        contentView.clipsToBounds = true
     }
 }
