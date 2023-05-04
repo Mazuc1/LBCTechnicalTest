@@ -29,7 +29,7 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     private let labelAdPrice: UILabel = .init().configure {
         $0.textColor = LBCColor.inkLight.color
-        $0.font = LBCFont.demiBoldXS.font
+        $0.font = LBCFont.mediumS.font
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -85,7 +85,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
         if let cachedImage = AdsGridViewController.adCellImagesCache.object(forKey: adID) {
             imageViewAd.image = cachedImage
         } else {
-            imageViewAd.loadImage(from: ad.imagesURL.thumb) { image in
+            guard let url = ad.imagesURL.thumb else { return }
+            imageViewAd.loadImage(from: url) { image in
                 guard let image else { return }
                 AdsGridViewController.adCellImagesCache.setObject(image, forKey: adID)
             }
@@ -93,7 +94,9 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
         setupView()
 
-        if ad.isUrgent { addImageViewUrgent() }
+        if ad.isUrgent { addImageViewUrgent() } else {
+            imageViewUrgent.removeFromSuperview()
+        }
     }
 
     private func setupView() {
