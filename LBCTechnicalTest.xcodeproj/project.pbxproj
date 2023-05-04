@@ -22,7 +22,7 @@
 		CF0657932A01B4FC007A7E34 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578D2A01B4FC007A7E34 /* Router.swift */; };
 		CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */; };
 		CF0657962A01BF62007A7E34 /* AdsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657952A01BF62007A7E34 /* AdsRouter.swift */; };
-		CF0657992A01C532007A7E34 /* AdsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657982A01C532007A7E34 /* AdsCollectionViewController.swift */; };
+		CF0657992A01C532007A7E34 /* AdsGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657982A01C532007A7E34 /* AdsGridViewController.swift */; };
 		CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CE82A02DFE800F2C764 /* Configurable.swift */; };
 		CF5A9CED2A02E1C100F2C764 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */; };
 		CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */; };
@@ -75,7 +75,7 @@
 		CF06578D2A01B4FC007A7E34 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CF06578E2A01B4FC007A7E34 /* DefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRouter.swift; sourceTree = "<group>"; };
 		CF0657952A01BF62007A7E34 /* AdsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsRouter.swift; sourceTree = "<group>"; };
-		CF0657982A01C532007A7E34 /* AdsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionViewController.swift; sourceTree = "<group>"; };
+		CF0657982A01C532007A7E34 /* AdsGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsGridViewController.swift; sourceTree = "<group>"; };
 		CF5A9CE82A02DFE800F2C764 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		CF5A9CEC2A02E1C100F2C764 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
-				CF0657982A01C532007A7E34 /* AdsCollectionViewController.swift */,
+				CF0657982A01C532007A7E34 /* AdsGridViewController.swift */,
 				CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */,
 				CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */,
 			);
@@ -386,7 +386,7 @@
 				CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */,
 				CF5A9CED2A02E1C100F2C764 /* DesignSystem.swift in Sources */,
 				CF5A9CFF2A03077A00F2C764 /* UIFont+extension.swift in Sources */,
-				CF0657992A01C532007A7E34 /* AdsCollectionViewController.swift in Sources */,
+				CF0657992A01C532007A7E34 /* AdsGridViewController.swift in Sources */,
 				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
 				CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */,
 				CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */,
