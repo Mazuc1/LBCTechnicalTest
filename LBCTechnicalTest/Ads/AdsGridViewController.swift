@@ -5,10 +5,17 @@
 //  Created by Loic Mazuc on 03/05/2023.
 //
 
+import Combine
 import UIKit
+
+enum AdsSection {
+    case main
+}
 
 final class AdsGridViewController: UIViewController {
     // MARK: - Properties
+
+    private let viewModel: AdsViewModel
 
     static let adCellImagesCache: NSCache<NSNumber, UIImage> = {
         let cache = NSCache<NSNumber, UIImage>()
@@ -17,17 +24,27 @@ final class AdsGridViewController: UIViewController {
         return cache
     }()
 
-    enum Section {
-        case main
-    }
+    private lazy var dataSource: UICollectionViewDiffableDataSource<AdsSection, Ad> = createDataSource()
 
-    private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Ad> = createDataSource()
+    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - UI
 
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = LBCColor.lightGray.color
+    }
+
+    // MARK: - Init
+
+    required init(viewModel: AdsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Life cycle
@@ -39,14 +56,35 @@ final class AdsGridViewController: UIViewController {
 
         setupConstraints()
 
-        let newsItems = Ad.mockedDatas
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Ad>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(newsItems)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        bindViewState()
+        viewModel.bindDataSources()
     }
 
-    func setupConstraints() {
+    private func bindViewState() {
+        viewModel.$viewState
+            .receive(on: RunLoop.main)
+            .sink { [weak self] in
+                self?.apply(state: $0)
+            }
+            .store(in: &cancellables)
+    }
+
+    func apply(state: AdsViewModel.ViewState) {
+        switch state {
+        case .loading:
+            collectionView.backgroundView = UIActivityIndicatorView(style: .medium).configure { $0.startAnimating() }
+        case .error:
+            print("Display retry view")
+        case let .loaded(content):
+            switch content {
+            case let .default(snapshot):
+                collectionView.backgroundView = nil
+                dataSource.apply(snapshot)
+            }
+        }
+    }
+
+    private func setupConstraints() {
         view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
@@ -57,13 +95,13 @@ final class AdsGridViewController: UIViewController {
         ])
     }
 
-    func createDataSource() -> UICollectionViewDiffableDataSource<Section, Ad> {
+    func createDataSource() -> UICollectionViewDiffableDataSource<AdsSection, Ad> {
         let cellRegistration = UICollectionView.CellRegistration
         <AdCollectionViewCell, Ad> { cell, _, newsItem in
             cell.fillUI(with: newsItem)
         }
 
-        return UICollectionViewDiffableDataSource<Section, Ad>(collectionView: collectionView) {
+        return UICollectionViewDiffableDataSource<AdsSection, Ad>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: Ad) -> UICollectionViewCell? in
             // Return the cell.
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration,

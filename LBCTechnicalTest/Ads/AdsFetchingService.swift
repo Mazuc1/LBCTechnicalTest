@@ -20,6 +20,7 @@ final class AdsFetchingService: AdsFetchingServiceProtocol {
 
     enum AdsFetchingServiceError: Error {
         case cannotBuildURL
+        case unknowError
     }
 
     let urlSession: URLSession

@@ -37,6 +37,7 @@
 		CF5A9D082A0310F200F2C764 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D072A0310F200F2C764 /* PaddingLabel.swift */; };
 		CF5A9D0C2A03AD5800F2C764 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0B2A03AD5800F2C764 /* AsyncImageView.swift */; };
 		CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */; };
+		CF5A9D102A03CC4000F2C764 /* AdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */; };
 		CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D112A03D5CD00F2C764 /* ContentState.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		CF5A9D072A0310F200F2C764 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CF5A9D0B2A03AD5800F2C764 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingService.swift; sourceTree = "<group>"; };
+		CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewModel.swift; sourceTree = "<group>"; };
 		CF5A9D112A03D5CD00F2C764 /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +200,7 @@
 			children = (
 				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
 				CF0657982A01C532007A7E34 /* AdsGridViewController.swift */,
+				CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */,
 				CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */,
 				CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */,
 				CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */,
@@ -395,6 +398,7 @@
 				CF0657992A01C532007A7E34 /* AdsGridViewController.swift in Sources */,
 				CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */,
 				CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */,
+				CF5A9D102A03CC4000F2C764 /* AdsViewModel.swift in Sources */,
 				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
 				CF5A9CEF2A02E6BA00F2C764 /* Ad.swift in Sources */,
 				CF5A9CE92A02DFE800F2C764 /* Configurable.swift in Sources */,

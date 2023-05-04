@@ -14,10 +14,18 @@ struct Ad: Decodable, Hashable, Equatable {
     var title: String
     var description: String
     var price: Float
-    var creationDate: Date
+    var creationDate: String
     var imagesURL: ImagesURL
     var isUrgent: Bool
     var siret: String?
+
+    enum CodingKeys: String, CodingKey {
+        case category = "category_id"
+        case isUrgent = "is_urgent"
+        case creationDate = "creation_date"
+        case imagesURL = "images_url"
+        case id, title, description, price, siret
+    }
 
     static func == (lhs: Ad, rhs: Ad) -> Bool {
         lhs.id == rhs.id
@@ -29,8 +37,8 @@ struct Ad: Decodable, Hashable, Equatable {
 }
 
 struct ImagesURL: Decodable {
-    var small: URL
-    var thumb: URL
+    var small: URL?
+    var thumb: URL?
 }
 
 enum AdCategory: Int, Decodable {
