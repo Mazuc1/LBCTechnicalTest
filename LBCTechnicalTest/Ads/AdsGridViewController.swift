@@ -58,6 +58,8 @@ final class AdsGridViewController: UIViewController {
 
         bindViewState()
         viewModel.bindDataSources()
+        
+        viewModel.refreshDatas()
     }
 
     private func bindViewState() {
@@ -97,8 +99,10 @@ final class AdsGridViewController: UIViewController {
 
     func createDataSource() -> UICollectionViewDiffableDataSource<AdsSection, Ad> {
         let cellRegistration = UICollectionView.CellRegistration
-        <AdCollectionViewCell, Ad> { cell, _, newsItem in
-            cell.fillUI(with: newsItem)
+        <AdCollectionViewCell, Ad> { [weak self] cell, _, newsItem in
+            guard let self else { return }
+            cell.fillUI(with: newsItem,
+                        of: newsItem.category(in: self.viewModel.adCategories))
         }
 
         return UICollectionViewDiffableDataSource<AdsSection, Ad>(collectionView: collectionView) {

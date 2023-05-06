@@ -72,13 +72,13 @@ final class AdCollectionViewCell: UICollectionViewCell {
         imageViewAd.image = nil
     }
 
-    func fillUI(with ad: Ad) {
+    func fillUI(with ad: Ad, of category: AdCategory) {
         labelAdTitle.text = ad.title
         labelAdPrice.text = "\(ad.price)€"
 
-        labelAdCategory.text = ad.category.name
-        labelAdCategory.textColor = ad.category.color
-        labelAdCategory.backgroundColor = ad.category.color.withAlphaComponent(0.2)
+        labelAdCategory.text = category.name
+        labelAdCategory.textColor = category.color
+        labelAdCategory.backgroundColor = category.color.withAlphaComponent(0.2)
 
         let adID = NSNumber(integerLiteral: ad.id)
 

@@ -10,6 +10,7 @@ import Foundation
 
 protocol AdsFetchingServiceProtocol: AnyObject {
     func fetchAds() -> AnyPublisher<[Ad], Error>
+    func fetchAdCategories() -> AnyPublisher<[AdCategory], Error>
 }
 
 final class AdsFetchingService: AdsFetchingServiceProtocol {
@@ -41,6 +42,17 @@ final class AdsFetchingService: AdsFetchingServiceProtocol {
         return urlSession.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: [Ad].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchAdCategories() -> AnyPublisher<[AdCategory], Error> {
+        guard let url = URL(string: categoriesEndPoint) else {
+            return Fail(error: AdsFetchingServiceError.cannotBuildURL).eraseToAnyPublisher()
+        }
+
+        return urlSession.dataTaskPublisher(for: url)
+            .map(\.data)
+            .decode(type: [AdCategory].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }

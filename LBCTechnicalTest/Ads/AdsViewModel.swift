@@ -22,6 +22,9 @@ final class AdsViewModel: ObservableObject {
     enum Content {
         case `default`(CollectionViewSnapshot)
     }
+    
+    var adCategories: [AdCategory] = []
+    var adsSubject: PassthroughSubject<[Ad], Never> = .init()
 
     @Published var viewState: ViewState = .loading
 
@@ -35,20 +38,30 @@ final class AdsViewModel: ObservableObject {
     }
 
     // MARK: - Methods
-
-    func bindDataSources() {
+    
+    func refreshDatas() {
         viewState = .loading
-
+        
+        Publishers.CombineLatest(adsFetchingService.fetchAds(),
+                                 adsFetchingService.fetchAdCategories())
+        .receive(on: RunLoop.main)
+        .sink { [weak self] completion in
+            switch completion {
+            case .failure: self?.viewState = .error(AdsFetchingService.AdsFetchingServiceError.unknowError)
+            case .finished: print("Finished")
+            }
+        } receiveValue: { [weak self] (ads, adCategories) in
+            self?.adsSubject.send(ads)
+            self?.adCategories = adCategories
+        }
+        .store(in: &cancellables)
+    }
+    
+    func bindDataSources() {
         let _makeCollectionViewDefaultSnapshot = makeCollectionViewDefaultSnapshot
-
-        adsFetchingService.fetchAds()
-            .receive(on: RunLoop.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure: self?.viewState = .error(AdsFetchingService.AdsFetchingServiceError.unknowError)
-                case .finished: print("Finished")
-                }
-            } receiveValue: { [weak self] ads in
+        
+        adsSubject
+            .sink { [weak self] ads in
                 let snapshot = _makeCollectionViewDefaultSnapshot(ads)
                 self?.viewState = .loaded(.default(snapshot))
             }
