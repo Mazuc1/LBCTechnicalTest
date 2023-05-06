@@ -51,22 +51,34 @@ final class AdsGridViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewState()
+        bindAdCategories()
+        viewModel.bindDataSources()
+        
+        viewModel.refreshDatas()
+        
         navigationItem.title = "LBC"
         navigationController?.navigationBar.prefersLargeTitles = true
 
         setupConstraints()
-
-        bindViewState()
-        viewModel.bindDataSources()
-        
-        viewModel.refreshDatas()
     }
+    
+    // MARK: - Methods
 
     private func bindViewState() {
         viewModel.$viewState
             .receive(on: RunLoop.main)
             .sink { [weak self] in
                 self?.apply(state: $0)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindAdCategories() {
+        viewModel.$adCategories
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.navigationItem.rightBarButtonItem = self?.createFilterBarButtonItem()
             }
             .store(in: &cancellables)
     }
@@ -82,8 +94,29 @@ final class AdsGridViewController: UIViewController {
             case let .default(snapshot):
                 collectionView.backgroundView = nil
                 dataSource.apply(snapshot)
+                
+            case let .filtered(snapshot):
+                collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : nil // No result view
+                dataSource.apply(snapshot)
             }
         }
+    }
+    
+    private func createFilterBarButtonItem() -> UIBarButtonItem {
+        let barButtonItem = UIBarButtonItem(image: .init(systemName: "line.3.horizontal.decrease.circle"),
+                                            style: .plain,
+                                            target: nil,
+                                            action: nil)
+        
+        barButtonItem.menu = .init(title: "",
+                                   children: viewModel.adCategories.map { category in
+            UIAction(title: category.name) { [weak self] _ in self?.didTapFilter(by: category) } })
+        
+        return barButtonItem
+    }
+    
+    private func didTapFilter(by category: AdCategory) {
+        viewModel.didTapFilter(by: category)
     }
 
     private func setupConstraints() {

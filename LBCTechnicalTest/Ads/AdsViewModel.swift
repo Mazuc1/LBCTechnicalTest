@@ -21,10 +21,12 @@ final class AdsViewModel: ObservableObject {
 
     enum Content {
         case `default`(CollectionViewSnapshot)
+        case filtered(CollectionViewSnapshot)
     }
     
-    var adCategories: [AdCategory] = []
+    @Published var adCategories: [AdCategory] = []
     var adsSubject: PassthroughSubject<[Ad], Never> = .init()
+    var adsFilteredSubject: PassthroughSubject<AdCategory?, Never> = .init()
 
     @Published var viewState: ViewState = .loading
 
@@ -59,6 +61,19 @@ final class AdsViewModel: ObservableObject {
     
     func bindDataSources() {
         let _makeCollectionViewDefaultSnapshot = makeCollectionViewDefaultSnapshot
+        let _makeCollectionViewFilteredSnapshot = makeCollectionViewFilteredSnapshot
+        
+        Publishers.CombineLatest(adsSubject, adsFilteredSubject)
+            .sink { [weak self] ads, category in                
+                if let category {
+                    let snapshot = _makeCollectionViewFilteredSnapshot(ads, category)
+                    self?.viewState = .loaded(.filtered(snapshot))
+                } else {
+                    let snapshot = _makeCollectionViewDefaultSnapshot(ads)
+                    self?.viewState = .loaded(.default(snapshot))
+                }
+            }
+            .store(in: &cancellables)
         
         adsSubject
             .sink { [weak self] ads in
@@ -70,7 +85,26 @@ final class AdsViewModel: ObservableObject {
 
     private func makeCollectionViewDefaultSnapshot(ads: [Ad]) -> CollectionViewSnapshot {
         var snapshot: CollectionViewSnapshot = .init()
+        
+        let sortedAds = sortedAdsByDateAndEmergency(ads: ads)
 
+        snapshot.appendSections([.main])
+        snapshot.appendItems(sortedAds)
+        return snapshot
+    }
+    
+    private func makeCollectionViewFilteredSnapshot(ads: [Ad], category: AdCategory) -> CollectionViewSnapshot {
+        var snapshot: CollectionViewSnapshot = .init()
+        
+        let filteredAds = ads.filter { $0.categoryId == category.id }
+        let sortedAds = sortedAdsByDateAndEmergency(ads: filteredAds)
+
+        snapshot.appendSections([.main])
+        snapshot.appendItems(sortedAds)
+        return snapshot
+    }
+    
+    private func sortedAdsByDateAndEmergency(ads: [Ad]) -> [Ad] {
         let notUrgentAds = ads
             .filter { !$0.isUrgent }
             .sorted { $0.creationDate > $1.creationDate }
@@ -79,10 +113,10 @@ final class AdsViewModel: ObservableObject {
             .filter { $0.isUrgent }
             .sorted { $0.creationDate > $1.creationDate }
 
-        let sortedAds = urgentAds + notUrgentAds
-
-        snapshot.appendSections([.main])
-        snapshot.appendItems(sortedAds)
-        return snapshot
+        return urgentAds + notUrgentAds
+    }
+    
+    func didTapFilter(by category: AdCategory) {
+        adsFilteredSubject.send(category)
     }
 }
