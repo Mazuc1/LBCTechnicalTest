@@ -18,7 +18,7 @@ struct Ad: Decodable, Hashable, Equatable {
     var imagesURL: ImagesURL
     var isUrgent: Bool
     var siret: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case categoryId = "category_id"
         case isUrgent = "is_urgent"
@@ -34,12 +34,12 @@ struct Ad: Decodable, Hashable, Equatable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+
     func category(in categories: [AdCategory]) -> AdCategory {
         guard let category = categories.first(where: { $0.id == categoryId }) else {
             return AdCategory.unknow
         }
-        
+
         return category
     }
 }
@@ -52,7 +52,7 @@ struct ImagesURL: Decodable {
 struct AdCategory: Decodable, Hashable, Equatable {
     var id: Int
     var name: String
-    
+
     var color: UIColor {
         switch id {
         case 1: return LBCColor.cyan.color
@@ -69,11 +69,11 @@ struct AdCategory: Decodable, Hashable, Equatable {
         default: return .black
         }
     }
-    
-    static var unknow = Self.init(id: -1, name: "Unknow")
+
+    static var unknow = Self(id: -1, name: "Unknow")
 }
 
-//extension Ad {
+// extension Ad {
 //    static let mockedUrl = URL(string: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")!
 //    static let mockedDatas: [Ad] = [
 //        .init(id: 1, category: .animals, title: "Chien à vendre aaa aaa aa aaa", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
@@ -100,4 +100,4 @@ struct AdCategory: Decodable, Hashable, Equatable {
 //        .init(id: 22, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
 //        .init(id: 23, category: .animals, title: "Chien à vendre", description: "Description", price: 13.00, creationDate: .init(), imagesURL: .init(small: Self.mockedUrl, thumb: Self.mockedUrl), isUrgent: false),
 //    ]
-//}
+// }

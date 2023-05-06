@@ -44,7 +44,7 @@ final class AdsFetchingService: AdsFetchingServiceProtocol {
             .decode(type: [Ad].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-    
+
     func fetchAdCategories() -> AnyPublisher<[AdCategory], Error> {
         guard let url = URL(string: categoriesEndPoint) else {
             return Fail(error: AdsFetchingServiceError.cannotBuildURL).eraseToAnyPublisher()
