@@ -130,7 +130,7 @@ final class AdsGridViewController: UIViewController {
         case .error:
             collectionView.backgroundView = nil // Error view
         case let .loaded((snapshot, category)):
-            collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : nil // No result view
+            collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : Self.NoResultView(adCategoryName: category?.name ?? "")
             dataSource.apply(snapshot)
             updateUIOfCancelCategoryButton(for: category)
         }
@@ -235,3 +235,50 @@ final class AdsGridViewController: UIViewController {
         return layout
     }
 }
+
+// MARK: - NoResultView
+
+extension AdsGridViewController {
+    class NoResultView: UIView {
+        let adCategoryName: String
+
+        init(adCategoryName: String) {
+            self.adCategoryName = adCategoryName
+            super.init(frame: .zero)
+            setup()
+        }
+
+        required init?(coder _: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        private func setup() {
+            createNoResultView().stretchInView(parentView: self)
+        }
+
+        private func createNoResultView() -> UIView {
+            UIStackView(arrangedSubviews: [
+                UILabel().configure(block: {
+                    let sentence = "Aucun résultat pour \(adCategoryName)"
+                    let attributedString = NSMutableAttributedString(string: sentence, attributes: [NSAttributedString.Key.font: LBCFont.mediumS.font])
+                    let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: LBCFont.demiBoldS.font]
+                    let range = (sentence as NSString).range(of: adCategoryName)
+                    attributedString.addAttributes(boldFontAttribute, range: range)
+
+                    $0.attributedText = attributedString
+                    $0.textAlignment = .center
+                }),
+                UIView(),
+            ]).configure {
+                $0.axis = .vertical
+                $0.isLayoutMarginsRelativeArrangement = true
+                let spacing = DS.defaultSpacing(factor: 2)
+                $0.layoutMargins = .init(top: spacing,
+                                         left: spacing,
+                                         bottom: spacing,
+                                         right: spacing)
+            }
+        }
+    }
+}
+
