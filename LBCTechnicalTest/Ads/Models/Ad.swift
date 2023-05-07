@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Ad: Decodable, Hashable, Equatable {
+struct Ad: Codable, Hashable, Equatable {
     var id: Int
     var categoryId: Int
     var title: String
@@ -44,12 +44,12 @@ struct Ad: Decodable, Hashable, Equatable {
     }
 }
 
-struct ImagesURL: Decodable {
+struct ImagesURL: Codable {
     var small: URL?
     var thumb: URL?
 }
 
-struct AdCategory: Decodable, Hashable, Equatable {
+struct AdCategory: Codable, Hashable, Equatable {
     var id: Int
     var name: String
 
