@@ -39,6 +39,7 @@
 		CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */; };
 		CF5A9D102A03CC4000F2C764 /* AdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */; };
 		CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D112A03D5CD00F2C764 /* ContentState.swift */; };
+		CFD5DA2F2A084A88006B3FE4 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingService.swift; sourceTree = "<group>"; };
 		CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewModel.swift; sourceTree = "<group>"; };
 		CF5A9D112A03D5CD00F2C764 /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
+		CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				CF5A9CFE2A03077A00F2C764 /* UIFont+extension.swift */,
 				CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */,
+				CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				CF0657932A01B4FC007A7E34 /* Router.swift in Sources */,
 				CF5A9CF12A02EBEC00F2C764 /* AdCollectionViewCell.swift in Sources */,
 				CF5A9D082A0310F200F2C764 /* PaddingLabel.swift in Sources */,
+				CFD5DA2F2A084A88006B3FE4 /* UIImage+extension.swift in Sources */,
 				CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */,
 				CF5A9CF32A02F02B00F2C764 /* UIStackView+extension.swift in Sources */,
 				CF0657922A01B4FC007A7E34 /* PushTransition.swift in Sources */,
