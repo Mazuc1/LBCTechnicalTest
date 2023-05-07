@@ -203,11 +203,11 @@
 			isa = PBXGroup;
 			children = (
 				CF0657952A01BF62007A7E34 /* AdsRouter.swift */,
+				CFD5DA352A085E0B006B3FE4 /* Services */,
+				CFD5DA342A085E00006B3FE4 /* Models */,
 				CF0657982A01C532007A7E34 /* AdsGridViewController.swift */,
 				CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */,
-				CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */,
 				CF5A9CF02A02EBEC00F2C764 /* AdCollectionViewCell.swift */,
-				CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -256,6 +256,22 @@
 				CF5A9D112A03D5CD00F2C764 /* ContentState.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CFD5DA342A085E00006B3FE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A9CEE2A02E6BA00F2C764 /* Ad.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CFD5DA352A085E0B006B3FE4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

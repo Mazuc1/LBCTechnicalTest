@@ -336,7 +336,7 @@ extension AdsGridViewController {
         private func createErrorView() -> UIView {
             UIStackView(arrangedSubviews: [
                 UILabel().configure(block: {
-                    $0.text = "Oups, une erreur est survenue.\n Veuillez réessayer."
+                    $0.text = "Oups, une erreur est survenue."
                     $0.font = LBCFont.mediumS.font
                     $0.textAlignment = .center
                 }),
