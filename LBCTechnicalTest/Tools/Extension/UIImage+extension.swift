@@ -17,5 +17,3 @@ extension UIImage {
         return UIImage(systemName: name, withConfiguration: imageFinalConfiguration) ?? UIImage()
     }
 }
-
-

@@ -65,11 +65,11 @@ final class AdsViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
+
     private func makeCollectionViewSnapshot(ads: [Ad], category: AdCategory?) -> CollectionViewSnapshot {
         var snapshot: CollectionViewSnapshot = .init()
         var filteredAds: [Ad] = []
-        
+
         if let category {
             filteredAds = ads.filter { $0.categoryId == category.id }
         }
@@ -96,7 +96,7 @@ final class AdsViewModel: ObservableObject {
     func didTapFilter(by category: AdCategory) {
         categorySubject.send(category)
     }
-    
+
     func didTapCancelFilteredAds() {
         categorySubject.send(nil)
     }

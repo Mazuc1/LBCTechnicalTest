@@ -34,7 +34,7 @@ final class AdsGridViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = LBCColor.lightGray.color
     }
-    
+
     private lazy var buttonCancelAdsFilterHeightConstraint: NSLayoutConstraint = .init(item: buttonCancelAdsFilter,
                                                                                        attribute: .height,
                                                                                        relatedBy: .equal,
@@ -42,10 +42,10 @@ final class AdsGridViewController: UIViewController {
                                                                                        attribute: .notAnAttribute,
                                                                                        multiplier: 1,
                                                                                        constant: 0)
-    
+
     private lazy var buttonCancelAdsFilter: UIButton = .init().configure { [weak self] in
         guard let self else { return }
-        
+
         $0.titleLabel?.font = LBCFont.mediumM.font
         $0.setTitleColor(.black, for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -53,13 +53,13 @@ final class AdsGridViewController: UIViewController {
         $0.layer.cornerRadius = DS.defaultRadius
         $0.tintColor = .black
         $0.addTarget(self, action: #selector(didTapCancelFilteredAds), for: .touchUpInside)
-        
+
         $0.setImage(UIImage.systemImage("xmark", weight: .medium, size: 13), for: .normal)
         $0.isHidden = true
-        
+
         let verticalInset = DS.defaultSpacing(factor: 0.5)
         let horizontalInset = DS.defaultSpacing
-        
+
         if #available(iOS 15.0, *) {
             var configuration = UIButton.Configuration.plain()
             configuration.contentInsets = NSDirectionalEdgeInsets(top: verticalInset,
@@ -135,14 +135,14 @@ final class AdsGridViewController: UIViewController {
             updateUIOfCancelCategoryButton(for: category)
         }
     }
-    
+
     private func updateUIOfCancelCategoryButton(for category: AdCategory?) {
         if let category {
             UIView.animate(withDuration: 0.2) { [weak self] in
                 self?.buttonCancelAdsFilter.isHidden = false
                 self?.buttonCancelAdsFilterHeightConstraint.constant = 30
             }
-            
+
             buttonCancelAdsFilter.setTitle(category.name,
                                            for: .normal)
             buttonCancelAdsFilter.backgroundColor = category.color.withAlphaComponent(0.2)
@@ -171,21 +171,21 @@ final class AdsGridViewController: UIViewController {
     private func didTapFilter(by category: AdCategory) {
         viewModel.didTapFilter(by: category)
     }
-    
+
     @objc private func didTapCancelFilteredAds() {
         viewModel.didTapCancelFilteredAds()
     }
 
     private func setupConstraints() {
         view.addSubview(buttonCancelAdsFilter)
-        
+
         NSLayoutConstraint.activate([
             buttonCancelAdsFilter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: DS.defaultSpacing(factor: 2)),
             buttonCancelAdsFilter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         ])
-        
+
         buttonCancelAdsFilter.addConstraint(buttonCancelAdsFilterHeightConstraint)
-        
+
         view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
@@ -248,6 +248,7 @@ extension AdsGridViewController {
             setup()
         }
 
+        @available(*, unavailable)
         required init?(coder _: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
@@ -287,10 +288,10 @@ extension AdsGridViewController {
 extension AdsGridViewController {
     class ErrorView: UIView {
         let action: () -> Void
-        
+
         private lazy var buttonRetry: UIButton = .init().configure { [weak self] in
             guard let self else { return }
-            
+
             $0.setTitle("Réessayer", for: .normal)
             $0.titleLabel?.font = LBCFont.mediumM.font
             $0.setTitleColor(.black, for: .normal)
@@ -298,10 +299,10 @@ extension AdsGridViewController {
             $0.layer.cornerRadius = DS.defaultRadius
             $0.tintColor = .black
             $0.addTarget(self, action: #selector(didTapRetry), for: .touchUpInside)
-                        
+
             let verticalInset = DS.defaultSpacing(factor: 0.5)
             let horizontalInset = DS.defaultSpacing(factor: 2)
-            
+
             if #available(iOS 15.0, *) {
                 var configuration = UIButton.Configuration.plain()
                 configuration.contentInsets = NSDirectionalEdgeInsets(top: verticalInset,
@@ -323,6 +324,7 @@ extension AdsGridViewController {
             setup()
         }
 
+        @available(*, unavailable)
         required init?(coder _: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
@@ -351,10 +353,9 @@ extension AdsGridViewController {
                                          right: spacing)
             }
         }
-        
+
         @objc private func didTapRetry() {
             action()
         }
     }
 }
-
