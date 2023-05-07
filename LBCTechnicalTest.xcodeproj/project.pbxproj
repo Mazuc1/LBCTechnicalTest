@@ -11,7 +11,7 @@
 		CF06575A2A01B235007A7E34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657592A01B235007A7E34 /* SceneDelegate.swift */; };
 		CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0657602A01B236007A7E34 /* Assets.xcassets */; };
 		CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */; };
-		CF06576F2A01B237007A7E34 /* LBCTechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */; };
+		CF06576F2A01B237007A7E34 /* AdsFetchingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */; };
 		CF0657792A01B237007A7E34 /* LBCTechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */; };
 		CF06577B2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */; };
 		CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657892A01B4FC007A7E34 /* ModalTransition.swift */; };
@@ -42,6 +42,8 @@
 		CFD5DA2F2A084A88006B3FE4 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */; };
 		CFD5DA332A08567F006B3FE4 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA322A08567F006B3FE4 /* UIView+extension.swift */; };
 		CFD5DA382A085F12006B3FE4 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */; };
+		CFD5DA3B2A086026006B3FE4 /* TestsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA392A086026006B3FE4 /* TestsError.swift */; };
+		CFD5DA3C2A086026006B3FE4 /* Decodable+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +71,7 @@
 		CF0657632A01B236007A7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF0657652A01B236007A7E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF06576A2A01B237007A7E34 /* LBCTechnicalTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCTechnicalTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestTests.swift; sourceTree = "<group>"; };
+		CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingServiceTests.swift; sourceTree = "<group>"; };
 		CF0657742A01B237007A7E34 /* LBCTechnicalTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCTechnicalTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITests.swift; sourceTree = "<group>"; };
 		CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -101,6 +103,8 @@
 		CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA322A08567F006B3FE4 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		CFD5DA392A086026006B3FE4 /* TestsError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsError.swift; sourceTree = "<group>"; };
+		CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +170,7 @@
 		CF06576D2A01B237007A7E34 /* LBCTechnicalTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				CF06576E2A01B237007A7E34 /* LBCTechnicalTestTests.swift */,
+				CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */,
 				CFD5DA362A085F03006B3FE4 /* Helpers */,
 			);
 			path = LBCTechnicalTestTests;
@@ -280,6 +284,8 @@
 		CFD5DA362A085F03006B3FE4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */,
+				CFD5DA392A086026006B3FE4 /* TestsError.swift */,
 				CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */,
 			);
 			path = Helpers;
@@ -451,8 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF06576F2A01B237007A7E34 /* LBCTechnicalTestTests.swift in Sources */,
+				CF06576F2A01B237007A7E34 /* AdsFetchingServiceTests.swift in Sources */,
 				CFD5DA382A085F12006B3FE4 /* MockURLProtocol.swift in Sources */,
+				CFD5DA3B2A086026006B3FE4 /* TestsError.swift in Sources */,
+				CFD5DA3C2A086026006B3FE4 /* Decodable+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
