@@ -46,6 +46,8 @@
 		CFD5DA3C2A086026006B3FE4 /* Decodable+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */; };
 		CFD5DA3F2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json in Resources */ = {isa = PBXBuildFile; fileRef = CFD5DA3E2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json */; };
 		CFD5DA412A0864C8006B3FE4 /* AdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA402A0864C8006B3FE4 /* AdTests.swift */; };
+		CFD5DA432A086771006B3FE4 /* AdCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA422A086771006B3FE4 /* AdCategoryTests.swift */; };
+		CFD5DA452A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json in Resources */ = {isa = PBXBuildFile; fileRef = CFD5DA442A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decodable+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA3E2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AdTests_testThatAdsCreateFromJSON().json"; sourceTree = "<group>"; };
 		CFD5DA402A0864C8006B3FE4 /* AdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTests.swift; sourceTree = "<group>"; };
+		CFD5DA422A086771006B3FE4 /* AdCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCategoryTests.swift; sourceTree = "<group>"; };
+		CFD5DA442A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AdCategoryTests_testThatAdCategoriesCreateFromJSON().json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 			children = (
 				CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */,
 				CFD5DA402A0864C8006B3FE4 /* AdTests.swift */,
+				CFD5DA422A086771006B3FE4 /* AdCategoryTests.swift */,
 				CFD5DA3D2A08609B006B3FE4 /* JSON */,
 				CFD5DA362A085F03006B3FE4 /* Helpers */,
 			);
@@ -301,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD5DA3E2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json */,
+				CFD5DA442A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD5DA452A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json in Resources */,
 				CFD5DA3F2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD5DA432A086771006B3FE4 /* AdCategoryTests.swift in Sources */,
 				CF06576F2A01B237007A7E34 /* AdsFetchingServiceTests.swift in Sources */,
 				CFD5DA382A085F12006B3FE4 /* MockURLProtocol.swift in Sources */,
 				CFD5DA3B2A086026006B3FE4 /* TestsError.swift in Sources */,
