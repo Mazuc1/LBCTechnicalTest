@@ -17,17 +17,12 @@ final class AdsViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
 
     typealias CollectionViewSnapshot = NSDiffableDataSourceSnapshot<AdsSection, Ad>
-    typealias ViewState = ContentState<Content>
+    typealias ViewState = ContentState<(CollectionViewSnapshot, AdCategory?)>
 
-    enum Content {
-        case `default`(CollectionViewSnapshot)
-        case filtered(CollectionViewSnapshot)
-    }
+    var adsSubject: PassthroughSubject<[Ad], Never> = .init()
+    var categorySubject: CurrentValueSubject<AdCategory?, Never> = .init(nil)
 
     @Published var adCategories: [AdCategory] = []
-    var adsSubject: PassthroughSubject<[Ad], Never> = .init()
-    var adsFilteredSubject: PassthroughSubject<AdCategory?, Never> = .init()
-
     @Published var viewState: ViewState = .loading
 
     // MARK: - Init
@@ -50,7 +45,7 @@ final class AdsViewModel: ObservableObject {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure: self?.viewState = .error(AdsFetchingService.AdsFetchingServiceError.unknowError)
-                case .finished: print("Finished")
+                case .finished: print("Finished") // see to cancel subscription
                 }
             } receiveValue: { [weak self] ads, adCategories in
                 self?.adsSubject.send(ads)
@@ -60,44 +55,25 @@ final class AdsViewModel: ObservableObject {
     }
 
     func bindDataSources() {
-        let _makeCollectionViewDefaultSnapshot = makeCollectionViewDefaultSnapshot
-        let _makeCollectionViewFilteredSnapshot = makeCollectionViewFilteredSnapshot
+        let _makeCollectionViewSnapshot = makeCollectionViewSnapshot
 
-        Publishers.CombineLatest(adsSubject, adsFilteredSubject)
+        Publishers.CombineLatest(adsSubject, categorySubject)
             .sink { [weak self] ads, category in
-                if let category {
-                    let snapshot = _makeCollectionViewFilteredSnapshot(ads, category)
-                    self?.viewState = .loaded(.filtered(snapshot))
-                } else {
-                    let snapshot = _makeCollectionViewDefaultSnapshot(ads)
-                    self?.viewState = .loaded(.default(snapshot))
-                }
-            }
-            .store(in: &cancellables)
-
-        adsSubject
-            .sink { [weak self] ads in
-                let snapshot = _makeCollectionViewDefaultSnapshot(ads)
-                self?.viewState = .loaded(.default(snapshot))
+                let snapshot = _makeCollectionViewSnapshot(ads, category)
+                self?.viewState = .loaded((snapshot, category))
             }
             .store(in: &cancellables)
     }
-
-    private func makeCollectionViewDefaultSnapshot(ads: [Ad]) -> CollectionViewSnapshot {
+    
+    private func makeCollectionViewSnapshot(ads: [Ad], category: AdCategory?) -> CollectionViewSnapshot {
         var snapshot: CollectionViewSnapshot = .init()
+        var filteredAds: [Ad] = []
+        
+        if let category {
+            filteredAds = ads.filter { $0.categoryId == category.id }
+        }
 
-        let sortedAds = sortedAdsByDateAndEmergency(ads: ads)
-
-        snapshot.appendSections([.main])
-        snapshot.appendItems(sortedAds)
-        return snapshot
-    }
-
-    private func makeCollectionViewFilteredSnapshot(ads: [Ad], category: AdCategory) -> CollectionViewSnapshot {
-        var snapshot: CollectionViewSnapshot = .init()
-
-        let filteredAds = ads.filter { $0.categoryId == category.id }
-        let sortedAds = sortedAdsByDateAndEmergency(ads: filteredAds)
+        let sortedAds = filteredAds.isEmpty ? sortedAdsByDateAndEmergency(ads: ads) : sortedAdsByDateAndEmergency(ads: filteredAds)
 
         snapshot.appendSections([.main])
         snapshot.appendItems(sortedAds)
@@ -117,6 +93,10 @@ final class AdsViewModel: ObservableObject {
     }
 
     func didTapFilter(by category: AdCategory) {
-        adsFilteredSubject.send(category)
+        categorySubject.send(category)
+    }
+    
+    func didTapCancelFilteredAds() {
+        categorySubject.send(nil)
     }
 }

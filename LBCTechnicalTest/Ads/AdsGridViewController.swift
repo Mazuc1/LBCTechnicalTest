@@ -34,6 +34,46 @@ final class AdsGridViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = LBCColor.lightGray.color
     }
+    
+    private lazy var buttonCancelAdsFilterHeightConstraint: NSLayoutConstraint = .init(item: buttonCancelAdsFilter,
+                                                                                       attribute: .height,
+                                                                                       relatedBy: .equal,
+                                                                                       toItem: nil,
+                                                                                       attribute: .notAnAttribute,
+                                                                                       multiplier: 1,
+                                                                                       constant: 0)
+    
+    private lazy var buttonCancelAdsFilter: UIButton = .init().configure { [weak self] in
+        guard let self else { return }
+        
+        $0.titleLabel?.font = LBCFont.mediumM.font
+        $0.setTitleColor(.black, for: .normal)
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .black.withAlphaComponent(0.2)
+        $0.layer.cornerRadius = DS.defaultRadius
+        $0.tintColor = .black
+        $0.addTarget(self, action: #selector(didTapCancelFilteredAds), for: .touchUpInside)
+        
+        $0.setImage(UIImage.systemImage("xmark", weight: .medium, size: 13), for: .normal)
+        $0.isHidden = true
+        
+        let verticalInset = DS.defaultSpacing(factor: 0.5)
+        let horizontalInset = DS.defaultSpacing
+        
+        if #available(iOS 15.0, *) {
+            var configuration = UIButton.Configuration.plain()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: verticalInset,
+                                                                  leading: horizontalInset,
+                                                                  bottom: verticalInset,
+                                                                  trailing: horizontalInset)
+            $0.configuration = configuration
+        } else {
+            $0.contentEdgeInsets = .init(top: verticalInset,
+                                         left: horizontalInset,
+                                         bottom: verticalInset,
+                                         right: horizontalInset)
+        }
+    }
 
     // MARK: - Init
 
@@ -57,8 +97,8 @@ final class AdsGridViewController: UIViewController {
 
         viewModel.refreshDatas()
 
+        view.backgroundColor = LBCColor.lightGray.color
         navigationItem.title = "LBC"
-        navigationController?.navigationBar.prefersLargeTitles = true
 
         setupConstraints()
     }
@@ -88,16 +128,28 @@ final class AdsGridViewController: UIViewController {
         case .loading:
             collectionView.backgroundView = UIActivityIndicatorView(style: .medium).configure { $0.startAnimating() }
         case .error:
-            print("Display retry view")
-        case let .loaded(content):
-            switch content {
-            case let .default(snapshot):
-                collectionView.backgroundView = nil
-                dataSource.apply(snapshot)
-
-            case let .filtered(snapshot):
-                collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : nil // No result view
-                dataSource.apply(snapshot)
+            collectionView.backgroundView = nil // Error view
+        case let .loaded((snapshot, category)):
+            collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : nil // No result view
+            dataSource.apply(snapshot)
+            updateUIOfCancelCategoryButton(for: category)
+        }
+    }
+    
+    private func updateUIOfCancelCategoryButton(for category: AdCategory?) {
+        if let category {
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                self?.buttonCancelAdsFilter.isHidden = false
+                self?.buttonCancelAdsFilterHeightConstraint.constant = 30
+            }
+            
+            buttonCancelAdsFilter.setTitle(category.name,
+                                           for: .normal)
+            buttonCancelAdsFilter.backgroundColor = category.color.withAlphaComponent(0.2)
+        } else {
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                self?.buttonCancelAdsFilter.isHidden = true
+                self?.buttonCancelAdsFilterHeightConstraint.constant = 0
             }
         }
     }
@@ -119,15 +171,28 @@ final class AdsGridViewController: UIViewController {
     private func didTapFilter(by category: AdCategory) {
         viewModel.didTapFilter(by: category)
     }
+    
+    @objc private func didTapCancelFilteredAds() {
+        viewModel.didTapCancelFilteredAds()
+    }
 
     private func setupConstraints() {
+        view.addSubview(buttonCancelAdsFilter)
+        
+        NSLayoutConstraint.activate([
+            buttonCancelAdsFilter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: DS.defaultSpacing(factor: 2)),
+            buttonCancelAdsFilter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        ])
+        
+        buttonCancelAdsFilter.addConstraint(buttonCancelAdsFilterHeightConstraint)
+        
         view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: buttonCancelAdsFilter.bottomAnchor, constant: DS.defaultSpacing),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
         ])
     }
 
@@ -141,7 +206,6 @@ final class AdsGridViewController: UIViewController {
 
         return UICollectionViewDiffableDataSource<AdsSection, Ad>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: Ad) -> UICollectionViewCell? in
-            // Return the cell.
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration,
                                                          for: indexPath,
                                                          item: item)
@@ -159,14 +223,14 @@ final class AdsGridViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitem: item,
                                                        count: 2)
-        group.interItemSpacing = .fixed(10)
+        group.interItemSpacing = .fixed(DS.defaultSpacing(factor: 1.5))
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10,
-                                                        leading: 10,
-                                                        bottom: 10,
-                                                        trailing: 10)
-        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: DS.defaultSpacing,
+                                                        leading: DS.defaultSpacing,
+                                                        bottom: DS.defaultSpacing,
+                                                        trailing: DS.defaultSpacing)
+        section.interGroupSpacing = DS.defaultSpacing
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
