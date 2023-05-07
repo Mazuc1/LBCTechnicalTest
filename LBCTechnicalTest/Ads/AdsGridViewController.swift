@@ -128,7 +128,7 @@ final class AdsGridViewController: UIViewController {
         case .loading:
             collectionView.backgroundView = UIActivityIndicatorView(style: .medium).configure { $0.startAnimating() }
         case .error:
-            collectionView.backgroundView = nil // Error view
+            collectionView.backgroundView = Self.ErrorView(action: { [weak self] in self?.viewModel.refreshDatas() })
         case let .loaded((snapshot, category)):
             collectionView.backgroundView = snapshot.numberOfItems > 0 ? nil : Self.NoResultView(adCategoryName: category?.name ?? "")
             dataSource.apply(snapshot)
@@ -278,6 +278,82 @@ extension AdsGridViewController {
                                          bottom: spacing,
                                          right: spacing)
             }
+        }
+    }
+}
+
+// MARK: - ErrorView
+
+extension AdsGridViewController {
+    class ErrorView: UIView {
+        let action: () -> Void
+        
+        private lazy var buttonRetry: UIButton = .init().configure { [weak self] in
+            guard let self else { return }
+            
+            $0.setTitle("Réessayer", for: .normal)
+            $0.titleLabel?.font = LBCFont.mediumM.font
+            $0.setTitleColor(.black, for: .normal)
+            $0.backgroundColor = .black.withAlphaComponent(0.2)
+            $0.layer.cornerRadius = DS.defaultRadius
+            $0.tintColor = .black
+            $0.addTarget(self, action: #selector(didTapRetry), for: .touchUpInside)
+                        
+            let verticalInset = DS.defaultSpacing(factor: 0.5)
+            let horizontalInset = DS.defaultSpacing(factor: 2)
+            
+            if #available(iOS 15.0, *) {
+                var configuration = UIButton.Configuration.plain()
+                configuration.contentInsets = NSDirectionalEdgeInsets(top: verticalInset,
+                                                                      leading: horizontalInset,
+                                                                      bottom: verticalInset,
+                                                                      trailing: horizontalInset)
+                $0.configuration = configuration
+            } else {
+                $0.contentEdgeInsets = .init(top: verticalInset,
+                                             left: horizontalInset,
+                                             bottom: verticalInset,
+                                             right: horizontalInset)
+            }
+        }
+
+        init(action: @escaping () -> Void) {
+            self.action = action
+            super.init(frame: .zero)
+            setup()
+        }
+
+        required init?(coder _: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        private func setup() {
+            createErrorView().stretchInView(parentView: self)
+        }
+
+        private func createErrorView() -> UIView {
+            UIStackView(arrangedSubviews: [
+                UILabel().configure(block: {
+                    $0.text = "Oups, une erreur est survenue.\n Veuillez réessayer."
+                    $0.font = LBCFont.mediumS.font
+                    $0.textAlignment = .center
+                }),
+                buttonRetry,
+                UIView(),
+            ]).configure {
+                $0.axis = .vertical
+                $0.spacing = DS.defaultSpacing(factor: 2)
+                $0.isLayoutMarginsRelativeArrangement = true
+                let spacing = DS.defaultSpacing(factor: 2)
+                $0.layoutMargins = .init(top: spacing,
+                                         left: spacing,
+                                         bottom: spacing,
+                                         right: spacing)
+            }
+        }
+        
+        @objc private func didTapRetry() {
+            action()
         }
     }
 }

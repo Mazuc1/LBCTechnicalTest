@@ -15,6 +15,7 @@ final class AdsViewModel: ObservableObject {
     private let adsFetchingService: AdsFetchingServiceProtocol
 
     private var cancellables: Set<AnyCancellable> = []
+    private var refreshCancellables: Set<AnyCancellable> = []
 
     typealias CollectionViewSnapshot = NSDiffableDataSourceSnapshot<AdsSection, Ad>
     typealias ViewState = ContentState<(CollectionViewSnapshot, AdCategory?)>
@@ -45,13 +46,13 @@ final class AdsViewModel: ObservableObject {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure: self?.viewState = .error(AdsFetchingService.AdsFetchingServiceError.unknowError)
-                case .finished: print("Finished") // see to cancel subscription
+                case .finished: self?.refreshCancellables.removeAll()
                 }
             } receiveValue: { [weak self] ads, adCategories in
                 self?.adsSubject.send(ads)
                 self?.adCategories = adCategories
             }
-            .store(in: &cancellables)
+            .store(in: &refreshCancellables)
     }
 
     func bindDataSources() {
