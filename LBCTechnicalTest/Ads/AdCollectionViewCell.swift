@@ -34,6 +34,7 @@ final class AdCollectionViewCell: UICollectionViewCell {
         $0.textColor = LBCColor.inkLight.color
         $0.font = LBCFont.mediumS.font
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
     private let labelAdCategory: PaddingLabel = .init(topInset: DS.defaultSpacing(factor: 0.5),
@@ -77,7 +78,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     func fillUI(with ad: Ad, of category: AdCategory) {
         labelAdTitle.text = ad.title
-        labelAdPrice.text = "\(ad.price)€"
+        let adPriceText = ad.price.isInteger ? "\(Int(ad.price))€" : "\(ad.price)€"
+        labelAdPrice.text = adPriceText
 
         labelAdCategory.text = category.name
         labelAdCategory.textColor = category.color
