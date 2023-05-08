@@ -1,5 +1,5 @@
 //
-//  AdsGridViewController.swift
+//  AdsViewController.swift
 //  LBCTechnicalTest
 //
 //  Created by Loic Mazuc on 03/05/2023.
@@ -12,7 +12,7 @@ enum AdsSection {
     case main
 }
 
-final class AdsGridViewController: UIViewController {
+final class AdsViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: AdsViewModel
@@ -238,7 +238,7 @@ final class AdsGridViewController: UIViewController {
 
 // MARK: - NoResultView
 
-extension AdsGridViewController {
+extension AdsViewController {
     class NoResultView: UIView {
         let adCategoryName: String
 
@@ -285,7 +285,7 @@ extension AdsGridViewController {
 
 // MARK: - ErrorView
 
-extension AdsGridViewController {
+extension AdsViewController {
     class ErrorView: UIView {
         let action: () -> Void
 

@@ -12,7 +12,7 @@ final class AdsRouter: DefaultRouter {
         let router = AdsRouter(rootTransition: EmptyTransition())
         let adsViewModel = AdsViewModel(router: router,
                                         adsFetchingService: AdsFetchingService())
-        let rootViewController = AdsGridViewController(viewModel: adsViewModel)
+        let rootViewController = AdsViewController(viewModel: adsViewModel)
         router.rootViewController = rootViewController
 
         return UINavigationController(rootViewController: rootViewController)

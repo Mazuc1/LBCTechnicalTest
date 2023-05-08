@@ -82,13 +82,13 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
         let adID = NSNumber(integerLiteral: ad.id)
 
-        if let cachedImage = AdsGridViewController.adCellImagesCache.object(forKey: adID) {
+        if let cachedImage = AdsViewController.adCellImagesCache.object(forKey: adID) {
             imageViewAd.image = cachedImage
         } else {
             guard let url = ad.imagesURL.thumb else { return }
             imageViewAd.loadImage(from: url) { image in
                 guard let image else { return }
-                AdsGridViewController.adCellImagesCache.setObject(image, forKey: adID)
+                AdsViewController.adCellImagesCache.setObject(image, forKey: adID)
             }
         }
 
