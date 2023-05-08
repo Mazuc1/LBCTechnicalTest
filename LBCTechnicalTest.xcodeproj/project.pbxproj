@@ -49,6 +49,7 @@
 		CFD5DA432A086771006B3FE4 /* AdCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA422A086771006B3FE4 /* AdCategoryTests.swift */; };
 		CFD5DA452A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json in Resources */ = {isa = PBXBuildFile; fileRef = CFD5DA442A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json */; };
 		CFEDE8D62A09355A00A19B51 /* AdsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDE8D52A09355A00A19B51 /* AdsViewControllerTests.swift */; };
+		CFEDE8D82A0935C600A19B51 /* MockSearchRecipeFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEDE8D72A0935C600A19B51 /* MockSearchRecipeFetchingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		CFD5DA422A086771006B3FE4 /* AdCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCategoryTests.swift; sourceTree = "<group>"; };
 		CFD5DA442A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AdCategoryTests_testThatAdCategoriesCreateFromJSON().json"; sourceTree = "<group>"; };
 		CFEDE8D52A09355A00A19B51 /* AdsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewControllerTests.swift; sourceTree = "<group>"; };
+		CFEDE8D72A0935C600A19B51 /* MockSearchRecipeFetchingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchRecipeFetchingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,9 +300,10 @@
 		CFD5DA362A085F03006B3FE4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CFEDE8D72A0935C600A19B51 /* MockSearchRecipeFetchingService.swift */,
+				CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */,
 				CFD5DA3A2A086026006B3FE4 /* Decodable+extension.swift */,
 				CFD5DA392A086026006B3FE4 /* TestsError.swift */,
-				CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD5DA432A086771006B3FE4 /* AdCategoryTests.swift in Sources */,
+				CFEDE8D82A0935C600A19B51 /* MockSearchRecipeFetchingService.swift in Sources */,
 				CF06576F2A01B237007A7E34 /* AdsFetchingServiceTests.swift in Sources */,
 				CFD5DA382A085F12006B3FE4 /* MockURLProtocol.swift in Sources */,
 				CFD5DA3B2A086026006B3FE4 /* TestsError.swift in Sources */,
