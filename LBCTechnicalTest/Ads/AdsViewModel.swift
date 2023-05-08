@@ -102,6 +102,6 @@ final class AdsViewModel: ObservableObject {
     }
     
     func didTap(ad: Ad) {
-        router.openAdDetails(for: ad)
+        router.openAdDetails(for: ad, of: ad.category(in: adCategories))
     }
 }
