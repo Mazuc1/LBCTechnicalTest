@@ -11,9 +11,12 @@ import Combine
 
 class MockAdsFetchingService: AdsFetchingServiceProtocol {
     var isAnErrorThrowFromFetchAds: Bool = false
+    var expectedReturnWhenFetchingAds: [Ad] = []
     func fetchAds() -> AnyPublisher<[LBCTechnicalTest.Ad], Error> {
         if isAnErrorThrowFromFetchAds {
             return Fail(error: TestsError.anyError).eraseToAnyPublisher()
+        } else if !expectedReturnWhenFetchingAds.isEmpty {
+            return CurrentValueSubject<[Ad], Error>(expectedReturnWhenFetchingAds).eraseToAnyPublisher()
         } else {
             let ads: [Ad] = [.init(id: 1, categoryId: 1, title: "", description: "", price: 1, creationDate: "", imagesURL: .init(), isUrgent: false)]
             return CurrentValueSubject<[Ad], Error>(ads).eraseToAnyPublisher()
