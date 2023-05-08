@@ -27,5 +27,6 @@ final class AdDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = LBCColor.lightGray.color
     }
 }

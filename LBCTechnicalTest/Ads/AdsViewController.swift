@@ -30,8 +30,9 @@ final class AdsViewController: UIViewController {
 
     // MARK: - UI
 
-    lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure {
+    lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure { [weak self] in
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.delegate = self
         $0.backgroundColor = LBCColor.lightGray.color
     }
 
@@ -233,6 +234,15 @@ final class AdsViewController: UIViewController {
         section.interGroupSpacing = DS.defaultSpacing
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension AdsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        viewModel.didTap(ad: item)
     }
 }
 
