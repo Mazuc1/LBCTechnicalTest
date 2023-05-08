@@ -12,7 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var adsRouter: AdsRouter?
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
-        adsRouter = AdsRouter(rootTransition: EmptyTransition())
+        let adsFetchingService = AdsFetchingService()
+        
+        adsRouter = AdsRouter(environement: .init(adsFetchingService: adsFetchingService),
+                              rootTransition: EmptyTransition())
 
         guard let windowScene = (scene as? UIWindowScene),
               let rootViewController = adsRouter?.makeRootViewController() else { return }
