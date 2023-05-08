@@ -11,11 +11,13 @@ final class AdCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
 
     static let reuseIdentifier: String = "AdCollectionViewCell"
+    private let imageHeight: CGFloat = 140
 
     // MARK: - UI
 
     private let imageViewAd: AsyncImageView = .init(frame: .zero).configure {
         $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
         $0.backgroundColor = .white
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -112,7 +114,7 @@ final class AdCollectionViewCell: UICollectionViewCell {
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            imageViewAd.heightAnchor.constraint(equalToConstant: 140),
+            imageViewAd.heightAnchor.constraint(equalToConstant: imageHeight),
             imageViewAd.widthAnchor.constraint(equalToConstant: contentView.frame.width),
 
             imageViewAd.topAnchor.constraint(equalTo: container.topAnchor),
