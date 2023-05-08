@@ -17,4 +17,14 @@ final class AdsRouter: DefaultRouter {
 
         return UINavigationController(rootViewController: rootViewController)
     }
+    
+    func openAdDetails(for ad: Ad) {
+        let transition = ModalTransition()
+        let router = AdsRouter(rootTransition: transition)
+        let adDetailsViewModel = AdDetailsViewModel(router: router, ad: ad)
+        let adDetailsViewController = AdDetailsViewController(viewModel: adDetailsViewModel)
+        
+        router.rootViewController = adDetailsViewController
+        route(to: adDetailsViewController, as: transition)
+    }
 }
