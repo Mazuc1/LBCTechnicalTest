@@ -30,7 +30,7 @@ final class AdsViewController: UIViewController {
 
     // MARK: - UI
 
-    private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure {
+    lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: createLayout()).configure {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = LBCColor.lightGray.color
     }
@@ -43,7 +43,7 @@ final class AdsViewController: UIViewController {
                                                                                        multiplier: 1,
                                                                                        constant: 0)
 
-    private lazy var buttonCancelAdsFilter: UIButton = .init().configure { [weak self] in
+    lazy var buttonCancelAdsFilter: UIButton = .init().configure { [weak self] in
         guard let self else { return }
 
         $0.titleLabel?.font = LBCFont.mediumM.font
