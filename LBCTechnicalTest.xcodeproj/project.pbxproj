@@ -12,8 +12,6 @@
 		CF0657612A01B236007A7E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0657602A01B236007A7E34 /* Assets.xcassets */; };
 		CF0657642A01B236007A7E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0657622A01B236007A7E34 /* LaunchScreen.storyboard */; };
 		CF06576F2A01B237007A7E34 /* AdsFetchingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */; };
-		CF0657792A01B237007A7E34 /* LBCTechnicalTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */; };
-		CF06577B2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */; };
 		CF06578F2A01B4FC007A7E34 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0657892A01B4FC007A7E34 /* ModalTransition.swift */; };
 		CF0657902A01B4FC007A7E34 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578A2A01B4FC007A7E34 /* Transition.swift */; };
 		CF0657912A01B4FC007A7E34 /* EmptyTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF06578B2A01B4FC007A7E34 /* EmptyTransition.swift */; };
@@ -62,13 +60,6 @@
 			remoteGlobalIDString = CF0657532A01B235007A7E34;
 			remoteInfo = LBCTechnicalTest;
 		};
-		CF0657752A01B237007A7E34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF06574C2A01B235007A7E34 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CF0657532A01B235007A7E34;
-			remoteInfo = LBCTechnicalTest;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -80,9 +71,6 @@
 		CF0657652A01B236007A7E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF06576A2A01B237007A7E34 /* LBCTechnicalTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCTechnicalTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF06576E2A01B237007A7E34 /* AdsFetchingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingServiceTests.swift; sourceTree = "<group>"; };
-		CF0657742A01B237007A7E34 /* LBCTechnicalTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCTechnicalTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITests.swift; sourceTree = "<group>"; };
-		CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCTechnicalTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CF0657892A01B4FC007A7E34 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
 		CF06578A2A01B4FC007A7E34 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		CF06578B2A01B4FC007A7E34 /* EmptyTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTransition.swift; sourceTree = "<group>"; };
@@ -138,13 +126,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF0657712A01B237007A7E34 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,7 +134,6 @@
 			children = (
 				CF0657562A01B235007A7E34 /* LBCTechnicalTest */,
 				CF06576D2A01B237007A7E34 /* LBCTechnicalTestTests */,
-				CF0657772A01B237007A7E34 /* LBCTechnicalTestUITests */,
 				CF0657552A01B235007A7E34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,7 +143,6 @@
 			children = (
 				CF0657542A01B235007A7E34 /* LBCTechnicalTest.app */,
 				CF06576A2A01B237007A7E34 /* LBCTechnicalTestTests.xctest */,
-				CF0657742A01B237007A7E34 /* LBCTechnicalTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,15 +174,6 @@
 				CFD5DA362A085F03006B3FE4 /* Helpers */,
 			);
 			path = LBCTechnicalTestTests;
-			sourceTree = "<group>";
-		};
-		CF0657772A01B237007A7E34 /* LBCTechnicalTestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CF0657782A01B237007A7E34 /* LBCTechnicalTestUITests.swift */,
-				CF06577A2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift */,
-			);
-			path = LBCTechnicalTestUITests;
 			sourceTree = "<group>";
 		};
 		CF0657872A01B4FC007A7E34 /* Router */ = {
@@ -361,24 +331,6 @@
 			productReference = CF06576A2A01B237007A7E34 /* LBCTechnicalTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CF0657732A01B237007A7E34 /* LBCTechnicalTestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF0657842A01B237007A7E34 /* Build configuration list for PBXNativeTarget "LBCTechnicalTestUITests" */;
-			buildPhases = (
-				CF0657702A01B237007A7E34 /* Sources */,
-				CF0657712A01B237007A7E34 /* Frameworks */,
-				CF0657722A01B237007A7E34 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CF0657762A01B237007A7E34 /* PBXTargetDependency */,
-			);
-			name = LBCTechnicalTestUITests;
-			productName = LBCTechnicalTestUITests;
-			productReference = CF0657742A01B237007A7E34 /* LBCTechnicalTestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -393,10 +345,6 @@
 						CreatedOnToolsVersion = 14.3;
 					};
 					CF0657692A01B237007A7E34 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = CF0657532A01B235007A7E34;
-					};
-					CF0657732A01B237007A7E34 = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = CF0657532A01B235007A7E34;
 					};
@@ -417,7 +365,6 @@
 			targets = (
 				CF0657532A01B235007A7E34 /* LBCTechnicalTest */,
 				CF0657692A01B237007A7E34 /* LBCTechnicalTestTests */,
-				CF0657732A01B237007A7E34 /* LBCTechnicalTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -442,13 +389,6 @@
 			files = (
 				CFD5DA452A0867CA006B3FE4 /* AdCategoryTests_testThatAdCategoriesCreateFromJSON().json in Resources */,
 				CFD5DA3F2A0860D5006B3FE4 /* AdTests_testThatAdsCreateFromJSON().json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF0657722A01B237007A7E34 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,15 +444,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF0657702A01B237007A7E34 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CF06577B2A01B237007A7E34 /* LBCTechnicalTestUITestsLaunchTests.swift in Sources */,
-				CF0657792A01B237007A7E34 /* LBCTechnicalTestUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -520,11 +451,6 @@
 			isa = PBXTargetDependency;
 			target = CF0657532A01B235007A7E34 /* LBCTechnicalTest */;
 			targetProxy = CF06576B2A01B237007A7E34 /* PBXContainerItemProxy */;
-		};
-		CF0657762A01B237007A7E34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CF0657532A01B235007A7E34 /* LBCTechnicalTest */;
-			targetProxy = CF0657752A01B237007A7E34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -754,42 +680,6 @@
 			};
 			name = Release;
 		};
-		CF0657852A01B237007A7E34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6L49G5QS6U;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Boublo.LBCTechnicalTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LBCTechnicalTest;
-			};
-			name = Debug;
-		};
-		CF0657862A01B237007A7E34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6L49G5QS6U;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Boublo.LBCTechnicalTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LBCTechnicalTest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -816,15 +706,6 @@
 			buildConfigurations = (
 				CF0657822A01B237007A7E34 /* Debug */,
 				CF0657832A01B237007A7E34 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF0657842A01B237007A7E34 /* Build configuration list for PBXNativeTarget "LBCTechnicalTestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF0657852A01B237007A7E34 /* Debug */,
-				CF0657862A01B237007A7E34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
