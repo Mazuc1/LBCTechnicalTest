@@ -24,7 +24,7 @@ final class AdsFetchingService: AdsFetchingServiceProtocol {
         case unknowError
     }
 
-    let urlSession: URLSession
+    private let urlSession: URLSession
 
     // MARK: - Init
 

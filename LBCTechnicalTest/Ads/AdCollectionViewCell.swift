@@ -12,6 +12,7 @@ final class AdCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier: String = "AdCollectionViewCell"
     private let imageHeight: CGFloat = 140
+    private let isUrgentImageSize: CGSize = .init(width: 20, height: 20)
 
     // MARK: - UI
 
@@ -144,8 +145,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
         imageViewAd.addSubview(imageViewUrgent)
 
         NSLayoutConstraint.activate([
-            imageViewUrgent.widthAnchor.constraint(equalToConstant: 20),
-            imageViewUrgent.heightAnchor.constraint(equalToConstant: 20),
+            imageViewUrgent.widthAnchor.constraint(equalToConstant: isUrgentImageSize.width),
+            imageViewUrgent.heightAnchor.constraint(equalToConstant: isUrgentImageSize.height),
             imageViewAd.bottomAnchor.constraint(equalTo: imageViewUrgent.bottomAnchor, constant: DS.defaultSpacing),
             imageViewAd.trailingAnchor.constraint(equalTo: imageViewUrgent.trailingAnchor, constant: DS.defaultSpacing),
         ])

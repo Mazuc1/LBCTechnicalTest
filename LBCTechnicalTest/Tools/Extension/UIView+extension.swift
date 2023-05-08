@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public extension UIView {
+extension UIView {
     func stretchInView(parentView: UIView, edges: UIEdgeInsets = UIEdgeInsets.zero, size: CGSize? = nil, relativeToMargins: Bool = false) {
         translatesAutoresizingMaskIntoConstraints = false
         parentView.addSubview(self)

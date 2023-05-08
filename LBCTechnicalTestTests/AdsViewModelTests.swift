@@ -13,12 +13,13 @@ final class AdsViewModelTests: XCTestCase {
     private var adsViewModel: AdsViewModel!
     private var mockAdsFetchingService: MockAdsFetchingService!
 
-    var cancellables: [AnyCancellable] = []
+    private var cancellables: [AnyCancellable] = []
 
     override func setUp() {
         super.setUp()
         mockAdsFetchingService = .init()
-        adsViewModel = .init(router: .init(rootTransition: EmptyTransition()),
+        adsViewModel = .init(router: .init(environement: .init(adsFetchingService: mockAdsFetchingService),
+                                           rootTransition: EmptyTransition()),
                              adsFetchingService: mockAdsFetchingService)
     }
 
@@ -97,14 +98,6 @@ final class AdsViewModelTests: XCTestCase {
 
     func testThatAdsIsSortedByEmergencyAndDate() {
         // Arrange
-        let returnedAds: [Ad] = [
-            .init(id: 1, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:09:20+0000", imagesURL: .init(), isUrgent: false),
-            .init(id: 2, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:12:20+0000", imagesURL: .init(), isUrgent: true),
-            .init(id: 3, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:08:20+0000", imagesURL: .init(), isUrgent: false),
-            .init(id: 4, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:14:20+0000", imagesURL: .init(), isUrgent: true),
-            .init(id: 5, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:18:20+0000", imagesURL: .init(), isUrgent: true),
-        ]
-
         let expectedSortedAds: [Ad] = [returnedAds[4], returnedAds[3], returnedAds[1], returnedAds[0], returnedAds[2]]
 
         mockAdsFetchingService.expectedReturnWhenFetchingAds = returnedAds
@@ -133,13 +126,6 @@ final class AdsViewModelTests: XCTestCase {
 
     func testWhenDidTapFilterAdsThenSnapshotOnlyContainedFilteredAds() {
         // Arrange
-        let returnedAds: [Ad] = [
-            .init(id: 1, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:09:20+0000", imagesURL: .init(), isUrgent: false),
-            .init(id: 2, categoryId: 2, title: "", description: "", price: 1, creationDate: "2019-10-16T17:12:20+0000", imagesURL: .init(), isUrgent: true),
-            .init(id: 3, categoryId: 2, title: "", description: "", price: 1, creationDate: "2019-10-16T17:08:20+0000", imagesURL: .init(), isUrgent: false),
-            .init(id: 4, categoryId: 3, title: "", description: "", price: 1, creationDate: "2019-10-16T17:14:20+0000", imagesURL: .init(), isUrgent: true),
-            .init(id: 5, categoryId: 4, title: "", description: "", price: 1, creationDate: "2019-10-16T17:18:20+0000", imagesURL: .init(), isUrgent: true),
-        ]
         let expectedAdCategory = AdCategory(id: 2, name: "")
         let expectedFilteredAds: [Ad] = [returnedAds[1], returnedAds[2]]
 
@@ -167,5 +153,17 @@ final class AdsViewModelTests: XCTestCase {
         adsViewModel.didTapFilter(by: expectedAdCategory)
 
         waitForExpectations(timeout: 2)
+    }
+}
+
+extension AdsViewModelTests {
+    private var returnedAds: [Ad] {
+        [
+            .init(id: 1, categoryId: 1, title: "", description: "", price: 1, creationDate: "2019-10-16T17:09:20+0000", imagesURL: .init(), isUrgent: false),
+            .init(id: 2, categoryId: 2, title: "", description: "", price: 1, creationDate: "2019-10-16T17:12:20+0000", imagesURL: .init(), isUrgent: true),
+            .init(id: 3, categoryId: 2, title: "", description: "", price: 1, creationDate: "2019-10-16T17:08:20+0000", imagesURL: .init(), isUrgent: false),
+            .init(id: 4, categoryId: 3, title: "", description: "", price: 1, creationDate: "2019-10-16T17:14:20+0000", imagesURL: .init(), isUrgent: true),
+            .init(id: 5, categoryId: 4, title: "", description: "", price: 1, creationDate: "2019-10-16T17:18:20+0000", imagesURL: .init(), isUrgent: true),
+        ]
     }
 }

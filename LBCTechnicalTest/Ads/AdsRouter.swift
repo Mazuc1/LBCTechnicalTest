@@ -18,13 +18,19 @@ extension AdsRouter {
 }
 
 final class AdsRouter: DefaultRouter {
+    // MARK: - Properties
+    
     let environement: Environment
+    
+    // MARK: - Init
 
     init(environement: Environment, rootTransition: Transition) {
         self.environement = environement
 
         super.init(rootTransition: rootTransition)
     }
+    
+    // MARK: - Methods
 
     func makeRootViewController() -> UIViewController {
         let router = AdsRouter(environement: environement, rootTransition: EmptyTransition())

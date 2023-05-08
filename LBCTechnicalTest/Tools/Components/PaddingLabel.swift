@@ -10,10 +10,10 @@ import UIKit
 class PaddingLabel: UILabel {
     // MARK: - Properties
 
-    var topInset: CGFloat
-    var bottomInset: CGFloat
-    var leftInset: CGFloat
-    var rightInset: CGFloat
+    private let topInset: CGFloat
+    private let bottomInset: CGFloat
+    private let leftInset: CGFloat
+    private let rightInset: CGFloat
 
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize

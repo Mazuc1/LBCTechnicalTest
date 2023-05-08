@@ -24,6 +24,8 @@ final class AdDetailsViewModel {
         self.ad = ad
         self.adCategory = adCategory
     }
+    
+    // MARK: - Methods
 
     func formattedAdDate() -> String {
         guard let date = ad.date else { return "" }

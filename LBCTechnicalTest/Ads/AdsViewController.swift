@@ -16,6 +16,7 @@ final class AdsViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: AdsViewModel
+    private let layoutSizeHeight: CGFloat = 200
 
     static let adCellImagesCache: NSCache<NSNumber, UIImage> = {
         let cache = NSCache<NSNumber, UIImage>()
@@ -99,7 +100,7 @@ final class AdsViewController: UIViewController {
         viewModel.refreshDatas()
 
         view.backgroundColor = LBCColor.lightGray.color
-        navigationItem.title = "LBC"
+        navigationItem.title = "Annonces"
 
         setupConstraints()
     }
@@ -197,7 +198,7 @@ final class AdsViewController: UIViewController {
         ])
     }
 
-    func createDataSource() -> UICollectionViewDiffableDataSource<AdsSection, Ad> {
+    private func createDataSource() -> UICollectionViewDiffableDataSource<AdsSection, Ad> {
         let cellRegistration = UICollectionView.CellRegistration
         <AdCollectionViewCell, Ad> { [weak self] cell, _, newsItem in
             guard let self else { return }
@@ -213,13 +214,13 @@ final class AdsViewController: UIViewController {
         }
     }
 
-    func createLayout() -> UICollectionViewLayout {
+    private func createLayout() -> UICollectionViewLayout {
         let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .estimated(200))
+                                                heightDimension: .estimated(layoutSizeHeight))
         let item = NSCollectionLayoutItem(layoutSize: layoutSize)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(200))
+                                               heightDimension: .estimated(layoutSizeHeight))
 
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitem: item,
@@ -250,7 +251,7 @@ extension AdsViewController: UICollectionViewDelegate {
 
 extension AdsViewController {
     class NoResultView: UIView {
-        let adCategoryName: String
+        private let adCategoryName: String
 
         init(adCategoryName: String) {
             self.adCategoryName = adCategoryName
@@ -297,7 +298,7 @@ extension AdsViewController {
 
 extension AdsViewController {
     class ErrorView: UIView {
-        let action: () -> Void
+        private let action: () -> Void
 
         private lazy var buttonRetry: UIButton = .init().configure { [weak self] in
             guard let self else { return }

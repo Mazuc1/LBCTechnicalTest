@@ -7,9 +7,9 @@
 
 import UIKit
 
-public protocol Configurable {}
+protocol Configurable {}
 
-public extension Configurable where Self: Any {
+extension Configurable where Self: Any {
     func configure(block: (inout Self) throws -> Void) rethrows -> Self {
         var copy = self
         try block(&copy)
@@ -17,7 +17,7 @@ public extension Configurable where Self: Any {
     }
 }
 
-public extension Configurable where Self: AnyObject {
+extension Configurable where Self: AnyObject {
     func configure(block: (Self) throws -> Void) rethrows -> Self {
         try block(self)
         return self

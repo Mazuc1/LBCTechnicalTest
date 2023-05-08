@@ -13,7 +13,8 @@ final class AdsViewControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        adsViewController = AdsViewController(viewModel: .init(router: .init(rootTransition: EmptyTransition()),
+        adsViewController = AdsViewController(viewModel: .init(router: .init(environement: .init(adsFetchingService: AdsFetchingService()),
+                                                                             rootTransition: EmptyTransition()),
                                                                adsFetchingService: MockAdsFetchingService()))
     }
 

@@ -10,9 +10,9 @@ import UIKit
 final class AdDetailsViewController: UIViewController {
     // MARK: - Properties
 
-    let viewModel: AdDetailsViewModel
-
+    private let viewModel: AdDetailsViewModel
     private let imageHeight: CGFloat = 300
+    private let isUrgentImageSize: CGSize = .init(width: 20, height: 20)
 
     // MARK: - UI
 
@@ -76,7 +76,7 @@ final class AdDetailsViewController: UIViewController {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private let imageViewUrgent: UIImageView = .init().configure {
+    private let imageViewIsUrgent: UIImageView = .init().configure {
         $0.contentMode = .scaleAspectFit
         $0.image = UIImage(systemName: "exclamationmark.triangle.fill")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -98,8 +98,6 @@ final class AdDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = LBCColor.lightGray.color
-
         setupScrollView()
         setupView()
         fillUI()
@@ -182,13 +180,13 @@ final class AdDetailsViewController: UIViewController {
     }
 
     private func addUrgentImageView() {
-        imageViewAd.addSubview(imageViewUrgent)
+        imageViewAd.addSubview(imageViewIsUrgent)
 
         NSLayoutConstraint.activate([
-            imageViewUrgent.widthAnchor.constraint(equalToConstant: 20),
-            imageViewUrgent.heightAnchor.constraint(equalToConstant: 20),
-            imageViewAd.bottomAnchor.constraint(equalTo: imageViewUrgent.bottomAnchor, constant: DS.defaultSpacing),
-            imageViewAd.trailingAnchor.constraint(equalTo: imageViewUrgent.trailingAnchor, constant: DS.defaultSpacing),
+            imageViewIsUrgent.widthAnchor.constraint(equalToConstant: isUrgentImageSize.width),
+            imageViewIsUrgent.heightAnchor.constraint(equalToConstant: isUrgentImageSize.height),
+            imageViewAd.bottomAnchor.constraint(equalTo: imageViewIsUrgent.bottomAnchor, constant: DS.defaultSpacing),
+            imageViewAd.trailingAnchor.constraint(equalTo: imageViewIsUrgent.trailingAnchor, constant: DS.defaultSpacing),
         ])
     }
 
