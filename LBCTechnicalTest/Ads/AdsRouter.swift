@@ -19,9 +19,9 @@ extension AdsRouter {
 
 final class AdsRouter: DefaultRouter {
     // MARK: - Properties
-    
+
     let environement: Environment
-    
+
     // MARK: - Init
 
     init(environement: Environment, rootTransition: Transition) {
@@ -29,7 +29,7 @@ final class AdsRouter: DefaultRouter {
 
         super.init(rootTransition: rootTransition)
     }
-    
+
     // MARK: - Methods
 
     func makeRootViewController() -> UIViewController {
