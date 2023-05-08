@@ -84,11 +84,11 @@ final class AdsViewModel: ObservableObject {
     private func sortedAdsByDateAndEmergency(ads: [Ad]) -> [Ad] {
         let notUrgentAds = ads
             .filter { !$0.isUrgent }
-            .sorted { $0.creationDate > $1.creationDate }
+            .sorted { $0.date ?? .init() > $1.date ?? .init() }
 
         let urgentAds = ads
             .filter { $0.isUrgent }
-            .sorted { $0.creationDate > $1.creationDate }
+            .sorted { $0.date ?? .init() > $1.date ?? .init() }
 
         return urgentAds + notUrgentAds
     }

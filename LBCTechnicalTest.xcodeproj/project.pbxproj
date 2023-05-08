@@ -39,6 +39,7 @@
 		CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */; };
 		CF5A9D102A03CC4000F2C764 /* AdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */; };
 		CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A9D112A03D5CD00F2C764 /* ContentState.swift */; };
+		CF73400F2A094D5800B50851 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF73400E2A094D5800B50851 /* String+extension.swift */; };
 		CFD5DA2F2A084A88006B3FE4 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */; };
 		CFD5DA332A08567F006B3FE4 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA322A08567F006B3FE4 /* UIView+extension.swift */; };
 		CFD5DA382A085F12006B3FE4 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */; };
@@ -106,6 +107,7 @@
 		CF5A9D0D2A03B2D200F2C764 /* AdsFetchingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsFetchingService.swift; sourceTree = "<group>"; };
 		CF5A9D0F2A03CC4000F2C764 /* AdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewModel.swift; sourceTree = "<group>"; };
 		CF5A9D112A03D5CD00F2C764 /* ContentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentState.swift; sourceTree = "<group>"; };
+		CF73400E2A094D5800B50851 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA322A08567F006B3FE4 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CFD5DA372A085F12006B3FE4 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				CF5A9CFE2A03077A00F2C764 /* UIFont+extension.swift */,
 				CF5A9CF22A02F02B00F2C764 /* UIStackView+extension.swift */,
 				CFD5DA2E2A084A88006B3FE4 /* UIImage+extension.swift */,
+				CF73400E2A094D5800B50851 /* String+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				CF5A9CFF2A03077A00F2C764 /* UIFont+extension.swift in Sources */,
 				CF0657992A01C532007A7E34 /* AdsViewController.swift in Sources */,
 				CF5A9D0E2A03B2D200F2C764 /* AdsFetchingService.swift in Sources */,
+				CF73400F2A094D5800B50851 /* String+extension.swift in Sources */,
 				CF5A9D122A03D5CD00F2C764 /* ContentState.swift in Sources */,
 				CF5A9D102A03CC4000F2C764 /* AdsViewModel.swift in Sources */,
 				CF0657942A01B4FC007A7E34 /* DefaultRouter.swift in Sources */,
