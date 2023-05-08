@@ -19,13 +19,13 @@ extension AdsRouter {
 
 final class AdsRouter: DefaultRouter {
     let environement: Environment
-    
+
     init(environement: Environment, rootTransition: Transition) {
         self.environement = environement
-        
+
         super.init(rootTransition: rootTransition)
     }
-    
+
     func makeRootViewController() -> UIViewController {
         let router = AdsRouter(environement: environement, rootTransition: EmptyTransition())
         let adsViewModel = AdsViewModel(router: router,
@@ -35,13 +35,13 @@ final class AdsRouter: DefaultRouter {
 
         return UINavigationController(rootViewController: rootViewController)
     }
-    
+
     func openAdDetails(for ad: Ad, of category: AdCategory) {
         let transition = PushTransition()
         let router = AdsRouter(environement: environement, rootTransition: transition)
         let adDetailsViewModel = AdDetailsViewModel(router: router, ad: ad, adCategory: category)
         let adDetailsViewController = AdDetailsViewController(viewModel: adDetailsViewModel)
-        
+
         router.rootViewController = adDetailsViewController
         route(to: adDetailsViewController, as: transition)
     }

@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         let adsFetchingService = AdsFetchingService()
-        
+
         adsRouter = AdsRouter(environement: .init(adsFetchingService: adsFetchingService),
                               rootTransition: EmptyTransition())
 

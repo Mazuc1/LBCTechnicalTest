@@ -28,16 +28,16 @@ extension Decodable {
 
         return try! decoder.decode(self, from: jsonData)
     }
-    
+
     static func jsonData(for function: String = #function, in file: String = #file, sender: AnyObject) -> Data {
         let (filename, bundle) = Self.generateJsonFilename(for: function, in: file, sender: sender)
 
         guard let path = bundle.path(forResource: filename, ofType: "json") else {
             fatalError("Failed to find: \"\(filename).json\"")
         }
-        
+
         let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        
+
         return jsonData
     }
 }

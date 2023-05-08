@@ -5,8 +5,8 @@
 //  Created by Loic Mazuc on 08/05/2023.
 //
 
-import XCTest
 @testable import LBCTechnicalTest
+import XCTest
 
 final class AdCategoryTests: XCTestCase {
     func testThatAdCategoriesCreateFromJSON() {

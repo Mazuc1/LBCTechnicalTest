@@ -18,7 +18,7 @@ struct Ad: Codable, Hashable, Equatable {
     var imagesURL: ImagesURL
     var isUrgent: Bool
     var siret: String?
-    
+
     var date: Date? {
         creationDate.ISO8601toDate()
     }

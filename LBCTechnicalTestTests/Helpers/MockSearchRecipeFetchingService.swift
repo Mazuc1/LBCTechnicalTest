@@ -5,9 +5,9 @@
 //  Created by Loic Mazuc on 02/09/2022.
 //
 
+import Combine
 import Foundation
 @testable import LBCTechnicalTest
-import Combine
 
 class MockAdsFetchingService: AdsFetchingServiceProtocol {
     var isAnErrorThrowFromFetchAds: Bool = false
@@ -22,7 +22,7 @@ class MockAdsFetchingService: AdsFetchingServiceProtocol {
             return CurrentValueSubject<[Ad], Error>(ads).eraseToAnyPublisher()
         }
     }
-    
+
     var isAnErrorThrowFromFetchAdCategories: Bool = false
     func fetchAdCategories() -> AnyPublisher<[LBCTechnicalTest.AdCategory], Error> {
         if isAnErrorThrowFromFetchAds {

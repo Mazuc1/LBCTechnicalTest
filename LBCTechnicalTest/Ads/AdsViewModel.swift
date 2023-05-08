@@ -100,7 +100,7 @@ final class AdsViewModel: ObservableObject {
     func didTapCancelFilteredAds() {
         categorySubject.send(nil)
     }
-    
+
     func didTap(ad: Ad) {
         router.openAdDetails(for: ad, of: ad.category(in: adCategories))
     }
