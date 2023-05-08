@@ -4,11 +4,11 @@ POC réalisé dans le cadre d'un test technique pour Leboncoin.
 
 # ⚙️ Côté tech
 
-Architecture MVVM-R
-Combine
-Auto-layout
-iOS 14.0+
-Aucune librairies utilisées
+- Architecture MVVM-R
+- Combine
+- Auto-layout
+- iOS 14.0+
+- Aucune librairies utilisées
 
 # 👀
 
