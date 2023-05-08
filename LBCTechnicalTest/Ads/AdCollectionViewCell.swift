@@ -68,8 +68,8 @@ final class AdCollectionViewCell: UICollectionViewCell {
     // MARK: - Methods
 
     override func prepareForReuse() {
-        super.prepareForReuse()
         imageViewAd.image = nil
+        super.prepareForReuse()
     }
 
     func fillUI(with ad: Ad, of category: AdCategory) {
